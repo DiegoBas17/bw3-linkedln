@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Search } from "react-bootstrap-icons";
 
-const MyNavbar = () => {
+const TopNavbar = () => {
   return (
     <div className="bg-light">
       <Container>
@@ -138,4 +138,4 @@ const MyNavbar = () => {
   );
 };
 
-export default MyNavbar;
+export default TopNavbar;
