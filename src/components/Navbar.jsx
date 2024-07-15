@@ -12,12 +12,12 @@ const MyNavbar = () => {
           <div className="logo ">
             <img className="w-100 rounded-2" src={logo} alt="LinedIn Logo" />
           </div>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav w-50" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <InputGroup className="SearchForm ms-3 border border-1">
                 <InputGroup.Text className="bg-white border-0 px-1">
-                  <Search className="w-100" />
+                  <Search />
                 </InputGroup.Text>
                 <FormControl className="bg-white border-0 px-0" type="Cerca" placeholder="Cerca" aria-label="Cerca" />
               </InputGroup>
