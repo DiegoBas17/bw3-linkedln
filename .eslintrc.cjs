@@ -13,10 +13,14 @@ module.exports = {
   plugins: ["react-refresh"],
   rules: {
     "react/jsx-no-target-blank": "off",
+<<<<<<< Updated upstream
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
     ],
+=======
+    "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+>>>>>>> Stashed changes
     "react/prop-types": "off",
   },
 };
