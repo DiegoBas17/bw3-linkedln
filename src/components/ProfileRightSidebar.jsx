@@ -29,6 +29,7 @@ const ProfileRightSidebar = () => {
               </div>
             </div>
           </Container>
+          {/* inserzione pubblicità */}
           <Container className="border border-secondary rounded-2 mt-2 px-0">
             <div className="right-side-profile">
               <img
@@ -37,6 +38,7 @@ const ProfileRightSidebar = () => {
               />
             </div>
           </Container>
+          {/* ALTRI UTENTI */}
           <Container className="border border-secondary rounded-2 mt-2 mb-2">
             <div>
               <h4>Altri profili simili</h4>
@@ -145,6 +147,18 @@ const ProfileRightSidebar = () => {
                   </Button>
                 </div>
               </div>
+            </div>
+            <div>
+              <p className="text-center pt-2">Mostra tutto</p>
+            </div>
+          </Container>
+          {/* inserzione pubblicità */}
+          <Container className="border border-secondary rounded-2 mt-2 px-0">
+            <div className="right-side-profile">
+              <img
+                src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
+                alt="hiring on LinkedIn"
+              />
             </div>
           </Container>
         </Col>
