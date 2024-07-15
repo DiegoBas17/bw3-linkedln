@@ -1,11 +1,13 @@
 import { Container } from "react-bootstrap";
 import "./App.css";
 import MyRightSidebar from "./components/MyRightSidebar";
+import ProfileRightSidebar from "./components/ProfileRightSidebar";
 
 function App() {
   return (
     <Container>
-      <MyRightSidebar />
+      <ProfileRightSidebar />
+      {/* <MyRightSidebar /> */}
     </Container>
   );
 }
