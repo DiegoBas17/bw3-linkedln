@@ -1,7 +1,12 @@
 // src/components/Navbar.jsx
-import { Navbar, Nav, Container, FormControl, InputGroup } from "react-bootstrap";
+import {
+  Navbar,
+  Nav,
+  Container,
+  FormControl,
+  InputGroup,
+} from "react-bootstrap";
 import logo from "../assets/logo.png";
-import "bootstrap-icons/font/bootstrap-icons.css";
 import { Search } from "react-bootstrap-icons";
 
 const TopNavbar = () => {
@@ -19,7 +24,12 @@ const TopNavbar = () => {
                 <InputGroup.Text className="bg-white border-0 px-1">
                   <Search />
                 </InputGroup.Text>
-                <FormControl className="bg-white border-0 px-0" type="Cerca" placeholder="Cerca" aria-label="Cerca" />
+                <FormControl
+                  className="bg-white border-0 px-0"
+                  type="Cerca"
+                  placeholder="Cerca"
+                  aria-label="Cerca"
+                />
               </InputGroup>
 
               <div className="text-center">

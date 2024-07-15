@@ -7,8 +7,8 @@ import { Plus } from "react-bootstrap-icons";
 const ProfileRightSidebar = () => {
   return (
     <>
-      <Container className="border border-secondary rounded-2 mt-2">
-        <div className="d-flex justify-content-between border-bottom mt-2">
+      <Container className="border border-secondary rounded-2 mt-2 bg-white">
+        <div className="d-flex justify-content-between border-bottom mt-2 ">
           <div>
             <h4>Lingua del profilo</h4>
             <p className="text-secondary">Italiano</p>
@@ -37,7 +37,7 @@ const ProfileRightSidebar = () => {
         </div>
       </Container>
       {/* ALTRI UTENTI */}
-      <Container className="border border-secondary rounded-2 mt-2 mb-2">
+      <Container className="border border-secondary rounded-2 mt-2 mb-2 bg-white">
         <div>
           <h4>Altri profili simili</h4>
         </div>

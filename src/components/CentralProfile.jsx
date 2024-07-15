@@ -1,17 +1,19 @@
 import { Button, Col, Container } from "react-bootstrap";
 import AnalisiProfile from "./AnalisiProfile";
+import RisorseProfile from "./RisorseProfile";
+import AttivityProfile from "./AttivityProfile";
 
 const CentralProfile = () => {
   return (
     <Col>
       <main>
         <Container>
-          <div className="border border-1 rounded-3 mt-3">
+          <div className="border border-1 rounded-3 mt-2 bg-white">
             <div>
               <div className="position-relative">
                 <div
                   id="editSmallContainer"
-                  className="position-absolute top-0 end-0 rounded-circle bg-white "
+                  className="position-absolute top-0 end-0 rounded-circle bg-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +31,7 @@ const CentralProfile = () => {
                 <img
                   src="https://media.licdn.com/dms/image/D4D16AQF7ByGyAQKP-w/profile-displaybackgroundimage-shrink_350_1400/0/1714930916758?e=1726704000&v=beta&t=siLnRYZkPUVTQiJBfr4CFBHVw0FGxN8b52ftOXkIV_o"
                   alt="foto-sfondo"
-                  className="w-100"
+                  className="w-100 rounded-top"
                 />
                 <div className="position-absolute bottom-0 start-0">
                   <img
@@ -41,7 +43,7 @@ const CentralProfile = () => {
                 </div>
               </div>
             </div>
-            <div className="pt-5 bg-color-white">
+            <div className="pt-5 ">
               <div id="editMedium" className="ms-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -85,6 +87,8 @@ const CentralProfile = () => {
             </div>
           </div>
           <AnalisiProfile />
+          <RisorseProfile />
+          <AttivityProfile />
         </Container>
       </main>
     </Col>
