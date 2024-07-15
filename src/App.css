@@ -1,0 +1,19 @@
+main {
+  background-color: #F4F2EE;
+  height: 100vh;
+}
+#imgProfilePageProfile {
+  height: 14rem;
+  transform: translate(17%, 30%);
+}
+#editSmallContainer {
+  width: 35px;
+  height: 35px;
+  transform: translate(-100%, 70%);
+}
+#edit-small {
+  transform: translate(38%, 20%);
+}
+#editMedium {
+  width: 3vw;
+}
