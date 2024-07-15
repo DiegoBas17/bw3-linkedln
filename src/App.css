@@ -1,5 +1,5 @@
 main {
-  background-color: #F4F2EE;
+  background-color: #f4f2ee;
   height: 100vh;
 }
 #imgProfilePageProfile {
@@ -12,7 +12,8 @@ main {
   transform: translate(-100%, 70%);
 }
 #edit-small {
-  transform: translate(38%, 20%);}
+  transform: translate(38%, 20%);
+}
 .leftSidebar {
   position: relative;
   width: 15rem;
@@ -21,7 +22,6 @@ main {
 .leftSidebarSubtitle1 {
   color: #666666;
   font-size: 0.8rem;
-
 }
 .leftSidebarSubtitle2 {
   color: #666666;
@@ -42,29 +42,28 @@ main {
   font-size: 0.8rem;
 }
 .leftSidebar .imgBackground {
-	height: 10vh; 
-	object-fit: cover;
+  height: 10vh;
+  object-fit: cover;
 }
 
 .leftSidebar .leftSidebarPicture {
-	position: relative;
-	top: -40px;
+  position: relative;
+  top: -40px;
   left: 15px;
-	text-align: center;
-	width: 50%;
-	display: flex;
-	justify-content: center;
+  text-align: center;
+  width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .leftSidebar .rounded-circle {
-	width: 100px; 
-
+  width: 100px;
 }
 .iconsText {
   display: flex;
   gap: 10px;
 }
-.card>hr {
+.card > hr {
   margin-right: 0;
   margin-left: 15px;
   width: 200px;
@@ -72,17 +71,14 @@ main {
 .expands {
   font-weight: 200;
   font-size: 0.8rem;
- 
 }
 
 .profile-card-add-experience-button {
   position: relative;
   width: 100%;
   height: 32px;
-margin-top: .4rem;
-border: 2px dashed rgb(144, 144, 144); 
-
-
+  margin-top: 0.4rem;
+  border: 2px dashed rgb(144, 144, 144);
 }
 .profile-card-add-experience-button span {
   font-size: 0.9rem;
@@ -90,21 +86,24 @@ border: 2px dashed rgb(144, 144, 144);
   font-weight: 100;
 }
 .profile-card-add-experience-button {
-  border: 2px dashed black; 
-  background-color: transparent; 
-  padding: 5px 10px; 
-  display: flex; 
-  align-items: center; 
-  cursor: pointer; 
+  border: 2px dashed black;
+  background-color: transparent;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 .profile-card-add-experience-button .plus-icon {
-  margin-right: 8px; 
+  margin-right: 8px;
 }
 
 .profile-card-add-experience-button:hover {
-  background-color: #f0f0f0; 
+  background-color: #f0f0f0;
 }
 #editMedium {
   width: 3vw;
+}
+.logo {
+  width: 10px;
 }
