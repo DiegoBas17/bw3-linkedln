@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import { Navbar, Nav, Container, FormControl, InputGroup } from "react-bootstrap";
 import logo from "../assets/logo.png";
-import "bootstrap-icons/font/bootstrap-icons.css";
+//import "bootstrap-icons/font/bootstrap-icons.css";
 import { Search } from "react-bootstrap-icons";
 
 const TopNavbar = () => {

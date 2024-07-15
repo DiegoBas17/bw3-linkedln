@@ -1,7 +1,20 @@
 import { Button, Col, Container } from "react-bootstrap";
 import AnalisiProfile from "./AnalisiProfile";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUserAction } from "../redux/actions/getUserAction";
 
 const CentralProfile = () => {
+  const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user.userObj);
+  console.log(user);
+
+  useEffect(() => {
+    dispatch(getUserAction());
+  });
+
   return (
     <Col>
       <main>
@@ -9,10 +22,7 @@ const CentralProfile = () => {
           <div className="border border-1 rounded-3 mt-3">
             <div>
               <div className="position-relative">
-                <div
-                  id="editSmallContainer"
-                  className="position-absolute top-0 end-0 rounded-circle bg-white "
-                >
+                <div id="editSmallContainer" className="position-absolute top-0 end-0 rounded-circle bg-white ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
@@ -75,10 +85,7 @@ const CentralProfile = () => {
                 <Button variant="outline-primary" className="rounded-pill mx-1">
                   Aggiungi seione del profilo
                 </Button>
-                <Button
-                  variant="outline-secondary"
-                  className="rounded-pill ms-1"
-                >
+                <Button variant="outline-secondary" className="rounded-pill ms-1">
                   Altro
                 </Button>
               </div>
