@@ -2,6 +2,7 @@ import { Button, Col, Container } from "react-bootstrap";
 import AnalisiProfile from "./AnalisiProfile";
 import RisorseProfile from "./RisorseProfile";
 import AttivityProfile from "./AttivityProfile";
+import FormazioneProfile from "./FormazioneProfile";
 
 const CentralProfile = () => {
   return (
@@ -89,6 +90,7 @@ const CentralProfile = () => {
           <AnalisiProfile />
           <RisorseProfile />
           <AttivityProfile />
+          <FormazioneProfile />
         </Container>
       </main>
     </Col>
