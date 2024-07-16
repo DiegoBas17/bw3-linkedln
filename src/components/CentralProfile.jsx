@@ -5,17 +5,10 @@ import AttivityProfile from "./AttivityProfile";
 import FormazioneProfile from "./FormazioneProfile";
 import LicenzeCertificazioniProfile from "./LicenzeCertificazioniProfile";
 import EsperienzaProfile from "./Esperienzaprofile";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getUserAction } from "../redux/actions/getUserAction";
+import { useSelector } from "react-redux";
 
 const CentralProfile = () => {
   const user = useSelector((state) => state.user.userObj);
-  const dispatch = useDispatch();
-  console.log(user);
-  useEffect(() => {
-    dispatch(getUserAction());
-  }, []);
 
   return (
     <>

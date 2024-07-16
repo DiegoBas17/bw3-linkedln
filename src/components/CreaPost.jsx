@@ -1,21 +1,16 @@
-import { useEffect } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import {
   BlockquoteLeft,
   CalendarEvent,
   ImageFill,
 } from "react-bootstrap-icons";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+
 import { Link } from "react-router-dom";
-import { getUserAction } from "../redux/actions/getUserAction";
 
 const CreaPost = () => {
-  const dispatch = useDispatch();
   const user = useSelector((state) => state.user.userObj);
   const userId = user?._id;
-  useEffect(() => {
-    dispatch(getUserAction());
-  }, []);
 
   return (
     <>
