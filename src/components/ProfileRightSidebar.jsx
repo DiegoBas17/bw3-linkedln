@@ -10,12 +10,11 @@ import { useSelector } from "react-redux";
 
 const ProfileRightSidebar = () => {
   const dispatch = useDispatch();
+  const users = useSelector((state) => state.otherUsers.list);
 
   useEffect(() => {
     dispatch(getOtherUsersAction());
-  }, [dispatch]);
-
-  const users = useSelector((state) => state.otherUsers.list);
+  }, []);
 
   console.log(users);
 

@@ -11,10 +11,12 @@ export const getOtherUsersAction = () => {
         },
       });
       if (resp.ok) {
-        let list = resp.json();
+        let users = await resp.json();
+        console.log(users);
+
         dispatch({
           type: GET_OTHER_USERS,
-          payload: list,
+          payload: users,
         });
       } else {
         throw new Error("Errore nel riperimento dei dati");
