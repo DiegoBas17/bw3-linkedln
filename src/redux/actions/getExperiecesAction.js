@@ -1,7 +1,7 @@
 import { API_KEY, URL_USER } from "./getUserAction";
 
 export const GET_EXPERIENCES = "GET_EXPERIENCES";
-const myId = "66952362196d7b0015d6b544";
+const myId = "66952362196d7b0015d6b544/";
 const experiences = "experiences";
 
 export const getExperiencesAction = () => {
