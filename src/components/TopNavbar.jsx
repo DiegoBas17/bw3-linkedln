@@ -1,18 +1,5 @@
 import { Button, Form, InputGroup, Nav, Navbar, NavDropdown, NavLink } from "react-bootstrap";
-import {
-  BarChartFill,
-  Briefcase,
-  BriefcaseFill,
-  Bullseye,
-  CartDashFill,
-  Compass,
-  CompassFill,
-  PeopleFill,
-  Person,
-  PlayBtnFill,
-  Search,
-  ShopWindow,
-} from "react-bootstrap-icons";
+import { BarChartFill, BriefcaseFill, Bullseye, CartDashFill, Compass, PeopleFill, PlayBtnFill, Search } from "react-bootstrap-icons";
 import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -159,7 +146,7 @@ function TopNavbar() {
                 </div>
                 <div className="d-flex align-items-center mb-3">
                   <BriefcaseFill fill="#0A66C2" />
-                  <NavDropdown.Item href="#action/3.2">Pubblica un'offerta di lavoro</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">Pubblica un&rsquo offerta di lavoro</NavDropdown.Item>
                 </div>
 
                 <p className="mb-0 text-secondary">Vendite</p>
