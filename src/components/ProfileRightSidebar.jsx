@@ -5,8 +5,12 @@ import { Pencil } from "react-bootstrap-icons";
 import { Plus } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getOtherUsersAction } from "../redux/actions/getOtherUsersAction";
+import {
+  GET_USER_SELECTED,
+  getOtherUsersAction,
+} from "../redux/actions/getOtherUsersAction";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const ProfileRightSidebar = () => {
   const dispatch = useDispatch();
@@ -62,9 +66,17 @@ const ProfileRightSidebar = () => {
             </div>
             <div>
               <div className="ms-2 mb-2">
-                <a href="#">
+                <Link
+                  to={"/profile/" + user._id}
+                  onClick={() => {
+                    dispatch({
+                      type: GET_USER_SELECTED,
+                      payload: user,
+                    });
+                  }}
+                >
                   {user.name} {user.surname}
-                </a>
+                </Link>
                 <span> &middot; 2&deg;</span>
                 <p>{user.title}</p>
                 <Button variant="outline-dark" className="rounded-pill">

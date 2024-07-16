@@ -8,7 +8,9 @@ import EsperienzaProfile from "./Esperienzaprofile";
 import { useSelector } from "react-redux";
 
 const CentralProfile = () => {
-  const user = useSelector((state) => state.user.userObj);
+  const userMe = useSelector((state) => state.user.userObj);
+  const userSelected = useSelector((state) => state.otherUsers.userSelected);
+  const user = userSelected ? userSelected : userMe;
 
   return (
     <>
@@ -19,23 +21,27 @@ const CentralProfile = () => {
               <div className="border border-1 rounded-3 mt-2 bg-white">
                 <div>
                   <div className="position-relative">
-                    <div
-                      id="editSmallContainer"
-                      className="position-absolute top-0 end-0 rounded-circle bg-white"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 16 16"
-                        width="20"
-                        height="20"
-                        id="edit-small"
-                        aria-hidden="true"
-                        role="none"
-                        fill="#0a66c2"
+                    {userSelected ? (
+                      <></>
+                    ) : (
+                      <div
+                        id="editSmallContainer"
+                        className="position-absolute top-0 end-0 rounded-circle bg-white"
                       >
-                        <path d="M14.13 1.86a3 3 0 00-4.17 0l-7 7L1 15l6.19-2 6.94-7a3 3 0 000-4.16zm-8.36 9.71l-1.35-1.34L9.64 5 11 6.35z" />
-                      </svg>
-                    </div>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 16 16"
+                          width="20"
+                          height="20"
+                          id="edit-small"
+                          aria-hidden="true"
+                          role="none"
+                          fill="#0a66c2"
+                        >
+                          <path d="M14.13 1.86a3 3 0 00-4.17 0l-7 7L1 15l6.19-2 6.94-7a3 3 0 000-4.16zm-8.36 9.71l-1.35-1.34L9.64 5 11 6.35z" />
+                        </svg>
+                      </div>
+                    )}
                     <img
                       src="https://media.licdn.com/dms/image/D4D16AQF7ByGyAQKP-w/profile-displaybackgroundimage-shrink_350_1400/0/1714930916758?e=1726704000&v=beta&t=siLnRYZkPUVTQiJBfr4CFBHVw0FGxN8b52ftOXkIV_o"
                       alt="foto-sfondo"
@@ -52,21 +58,25 @@ const CentralProfile = () => {
                   </div>
                 </div>
                 <div className="pt-5 ">
-                  <div id="editMedium" className="ms-auto">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      height="24px"
-                      width="24px"
-                      id="edit-medium"
-                      aria-hidden="true"
-                      role="none"
-                      data-supported-dps="24x24"
-                      fill="currentColor"
-                    >
-                      <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z" />
-                    </svg>
-                  </div>
+                  {userSelected ? (
+                    <></>
+                  ) : (
+                    <div id="editMedium" className="ms-auto">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        height="24px"
+                        width="24px"
+                        id="edit-medium"
+                        aria-hidden="true"
+                        role="none"
+                        data-supported-dps="24x24"
+                        fill="currentColor"
+                      >
+                        <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z" />
+                      </svg>
+                    </div>
+                  )}
                 </div>
                 <div className="p-3">
                   <h1 className="mt-1">
@@ -99,8 +109,14 @@ const CentralProfile = () => {
                   </div>
                 </div>
               </div>
-              <AnalisiProfile />
-              <RisorseProfile />
+              {userSelected ? (
+                <></>
+              ) : (
+                <>
+                  <AnalisiProfile />
+                  <RisorseProfile />
+                </>
+              )}
               <AttivityProfile />
               <EsperienzaProfile />
               <FormazioneProfile />
