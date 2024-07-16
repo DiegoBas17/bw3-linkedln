@@ -13,7 +13,7 @@ export const getUserAction = () => {
         },
       });
       if (resp.ok) {
-        let { data } = await resp.json();
+        let data = await resp.json();
         dispatch({
           type: GET_USER,
           payload: data,

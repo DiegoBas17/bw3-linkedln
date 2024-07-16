@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <TopNavbar />
       <Routes>
-        <Route path="/" element={<ProfilePage />} />
-        <Route path="/centralhome" element={<CentralMainHome />} />
+        <Route path="/" element={<CentralMainHome />} />
+        <Route path="/profile/:_id" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   );
