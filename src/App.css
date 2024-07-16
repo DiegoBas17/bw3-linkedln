@@ -107,3 +107,19 @@ main {
 .logo {
   width: 10px;
 }
+
+.dropdownMenu {
+  width: 850px;
+}
+
+.dropdownMenu_1 {
+  padding-right: 30px;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.dropdown-toggle::before {
+  display: none !important;
+}
