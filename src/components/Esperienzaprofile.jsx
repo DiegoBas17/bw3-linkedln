@@ -3,6 +3,7 @@ import AddExperiences from "./AddExperiences";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getExperiencesAction } from "../redux/actions/getExperiecesAction";
+import EditExperiences from "./EditExperiences";
 
 const EsperienzaProfile = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,10 @@ const EsperienzaProfile = () => {
         <h2>Esperienza</h2>
         <div className="d-flex justify-content-between">
           <AddExperiences />
-          <svg
+        
+         <AddExperiences/>
+         <EditExperiences/>
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             height="24px"
@@ -33,7 +37,7 @@ const EsperienzaProfile = () => {
             className="ms-2"
           >
             <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z" />
-          </svg>
+          </svg> */}
         </div>
       </div>
       {/* qualifica 1 */}
