@@ -3,6 +3,8 @@ import AnalisiProfile from "./AnalisiProfile";
 import RisorseProfile from "./RisorseProfile";
 import AttivityProfile from "./AttivityProfile";
 import FormazioneProfile from "./FormazioneProfile";
+import LicenzeCertificazioniProfile from "./LicenzeCertificazioniProfile";
+import EsperienzaProfile from "./Esperienzaprofile";
 
 const CentralProfile = () => {
   return (
@@ -90,7 +92,9 @@ const CentralProfile = () => {
           <AnalisiProfile />
           <RisorseProfile />
           <AttivityProfile />
+          <EsperienzaProfile />
           <FormazioneProfile />
+          <LicenzeCertificazioniProfile />
         </Container>
       </main>
     </Col>
