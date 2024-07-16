@@ -1,5 +1,5 @@
 // src/components/Navbar.jsx
-import { Navbar, Nav, Container, FormControl, InputGroup } from "react-bootstrap";
+import { Navbar, Nav, Container, FormControl, InputGroup, NavDropdown, DropdownMenu, Dropdown, DropdownItemText, DropdownToggle } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Search } from "react-bootstrap-icons";
@@ -8,7 +8,7 @@ const TopNavbar = () => {
   return (
     <div className="bg-light">
       <Container>
-        <Navbar bg="light" variant="dark" expand="lg">
+        <Navbar bg="light" expand="lg">
           <div className="logo ">
             <img className="w-100 rounded-2" src={logo} alt="LinedIn Logo" />
           </div>
@@ -113,22 +113,30 @@ const TopNavbar = () => {
                   Tu
                 </Nav.Link>
               </div>
-              <div className="text-center">
-                <Nav.Link className="text-secondary" href="#link">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    data-supported-dps="24x24"
-                    fill="currentColor"
-                    className="mercado-match"
-                    width="30"
-                    height="30"
-                    focusable="false"
-                  >
-                    <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
-                  </svg>
-                  Tu
-                </Nav.Link>
+              <div className="text-center text-secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  data-supported-dps="24x24"
+                  fill="currentColor"
+                  className="mercado-match"
+                  width="30"
+                  height="30"
+                  focusable="false"
+                >
+                  <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
+                </svg>
+                <Dropdown className="nav-item">
+                  <Dropdown.Toggle id="for-business" variant="transparent" className="nav-link text-secondary ">
+                    Per le Aziende
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#action3">Action</Dropdown.Item>
+                    <Dropdown.Item href="#action4">Another action</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item href="#action5">Something else here</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </div>
             </Nav>
           </Navbar.Collapse>
