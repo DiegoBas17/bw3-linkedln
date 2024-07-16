@@ -13,7 +13,7 @@ const CentralProfile = () => {
 
   useEffect(() => {
     dispatch(getUserAction());
-  });
+  }, [dispatch]);
 
   return (
     <Col>
