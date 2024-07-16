@@ -3,8 +3,21 @@ import "../index.css";
 import { Button, Container } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
 import { Plus } from "react-bootstrap-icons";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getOtherUsersAction } from "../redux/actions/getOtherUsersAction";
+import { useSelector } from "react-redux";
 
 const ProfileRightSidebar = () => {
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.otherUsers.list);
+
+  useEffect(() => {
+    dispatch(getOtherUsersAction());
+  }, []);
+
+  console.log(users);
+
   return (
     <>
       <Container className="border border-secondary rounded-2 mt-2 bg-white">
