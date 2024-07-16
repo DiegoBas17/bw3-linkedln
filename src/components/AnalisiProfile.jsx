@@ -2,7 +2,7 @@ import { Col, Row } from "react-bootstrap";
 
 const AnalisiProfile = () => {
   return (
-    <div className="p-3 border border-1 rounded-3 mt-3">
+    <div className="p-3 border border-1 rounded-3 mt-3 bg-white">
       <h2>Analisi</h2>
       <p>
         <svg
@@ -83,6 +83,25 @@ const AnalisiProfile = () => {
           </div>
         </Col>
       </Row>
+      <hr />
+      <h6 className="text-center">
+        <strong>
+          Mostra tutte le risorse
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            height={16}
+            className="ms-1"
+            id="arrow-right-small"
+            aria-hidden="true"
+            role="none"
+            data-supported-dps="16x16"
+            fill="currentColor"
+          >
+            <path d="M11.45 3L15 8l-3.55 5H9l2.84-4H2V7h9.84L9 3z" />
+          </svg>
+        </strong>
+      </h6>
     </div>
   );
 };

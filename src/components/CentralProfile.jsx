@@ -1,18 +1,33 @@
 import { Button, Col, Container } from "react-bootstrap";
 import AnalisiProfile from "./AnalisiProfile";
+import RisorseProfile from "./RisorseProfile";
+import AttivityProfile from "./AttivityProfile";
+import FormazioneProfile from "./FormazioneProfile";
+import LicenzeCertificazioniProfile from "./LicenzeCertificazioniProfile";
+import EsperienzaProfile from "./Esperienzaprofile";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUserAction } from "../redux/actions/getUserAction";
 
 const CentralProfile = () => {
+  const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user.userObj);
+  console.log(user);
+
+  useEffect(() => {
+    dispatch(getUserAction());
+  }, [dispatch]);
+
   return (
     <Col>
       <main>
         <Container>
-          <div className="border border-1 rounded-3 mt-3">
+          <div className="border border-1 rounded-3 mt-2 bg-white">
             <div>
               <div className="position-relative">
-                <div
-                  id="editSmallContainer"
-                  className="position-absolute top-0 end-0 rounded-circle bg-white "
-                >
+                <div id="editSmallContainer" className="position-absolute top-0 end-0 rounded-circle bg-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
@@ -29,7 +44,7 @@ const CentralProfile = () => {
                 <img
                   src="https://media.licdn.com/dms/image/D4D16AQF7ByGyAQKP-w/profile-displaybackgroundimage-shrink_350_1400/0/1714930916758?e=1726704000&v=beta&t=siLnRYZkPUVTQiJBfr4CFBHVw0FGxN8b52ftOXkIV_o"
                   alt="foto-sfondo"
-                  className="w-100"
+                  className="w-100 rounded-top"
                 />
                 <div className="position-absolute bottom-0 start-0">
                   <img
@@ -41,7 +56,7 @@ const CentralProfile = () => {
                 </div>
               </div>
             </div>
-            <div className="pt-5 bg-color-white">
+            <div className="pt-5 ">
               <div id="editMedium" className="ms-auto">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -75,16 +90,18 @@ const CentralProfile = () => {
                 <Button variant="outline-primary" className="rounded-pill mx-1">
                   Aggiungi seione del profilo
                 </Button>
-                <Button
-                  variant="outline-secondary"
-                  className="rounded-pill ms-1"
-                >
+                <Button variant="outline-secondary" className="rounded-pill ms-1">
                   Altro
                 </Button>
               </div>
             </div>
           </div>
           <AnalisiProfile />
+          <RisorseProfile />
+          <AttivityProfile />
+          <EsperienzaProfile />
+          <FormazioneProfile />
+          <LicenzeCertificazioniProfile />
         </Container>
       </main>
     </Col>
