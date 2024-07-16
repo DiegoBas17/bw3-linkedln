@@ -1,6 +1,7 @@
 import { API_KEY, URL_USER } from "./getUserAction";
 
 export const GET_OTHER_USERS = "GET_OTHER_USERS";
+export const GET_USER_SELECTED = "GET_USER_SELECTED";
 
 export const getOtherUsersAction = () => {
   return async (dispatch) => {
