@@ -1,23 +1,12 @@
+import AddExperiences from "./AddExperiences";
+
 const EsperienzaProfile = () => {
   return (
     <div className="p-3 border border-1 rounded-3 mt-3 bg-white">
       <div className="d-flex justify-content-between">
         <h2>Esperienza</h2>
         <div className="d-flex justify-content-between">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            height="24px"
-            width="24px"
-            id="add-medium"
-            aria-hidden="true"
-            role="none"
-            data-supported-dps="24x24"
-            fill="currentcolor"
-            className="me-2"
-          >
-            <path d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8z" />
-          </svg>
+         <AddExperiences/>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
