@@ -12,7 +12,6 @@ export const getOtherUsersAction = () => {
       });
       if (resp.ok) {
         let users = await resp.json();
-        console.log(users);
 
         dispatch({
           type: GET_OTHER_USERS,
