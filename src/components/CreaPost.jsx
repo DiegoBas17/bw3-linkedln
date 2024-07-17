@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import {
   BlockquoteLeft,
@@ -7,17 +8,42 @@ import {
 import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
+import { API_KEY } from "../redux/actions/getUserAction";
 
 const CreaPost = () => {
   const user = useSelector((state) => state.user.userObj);
   const userId = user?._id;
-
+  const [newpost, setNewpost] = useState(null);
+  /* console.log(newpost); */
+  /* fetch per la "POST" dei post */
+  const fetchForPostNotizie = (post) => {
+    fetch("https://striveschool-api.herokuapp.com/api/posts/", {
+      method: "POST",
+      body: JSON.stringify(post),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: API_KEY,
+      },
+    })
+      .then((resp) => {
+        if (resp.ok) {
+          alert("Commento aggiunto con successo!");
+        } else {
+          throw new Error("Errore nel reperimento dei commenti");
+        }
+      })
+      .catch((err) => alert(err));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetchForPostNotizie(newpost);
+  };
   return (
     <>
       {userId && (
         <div className="rounded-2 bg-white p-3 border border-2">
           <Row className="align-items-center g-2">
-            <Col xs="2" sm="1">
+            <Col xs="auto">
               <Link to={"/profile/" + userId}>
                 <img
                   src={user?.image}
@@ -28,14 +54,23 @@ const CreaPost = () => {
                 />
               </Link>
             </Col>
-            <Col xs="10" sm="11">
+            <Col>
               <div className="rounded-pill border border-1 p-2 border-secondary mx-2">
-                <Form.Control
-                  placeholder="Crea un post"
-                  className="border border-0"
-                />
+                <Form onSubmit={handleSubmit}>
+                  <Form.Control
+                    placeholder="Crea un post"
+                    className="border border-0"
+                    onChange={(e) => {
+                      setNewpost({
+                        text: e.target.value,
+                      });
+                    }}
+                  />
+                </Form>
               </div>
             </Col>
+          </Row>
+          <Row>
             <Col md="5">
               <div>
                 <ImageFill fill="#378FE9" />
