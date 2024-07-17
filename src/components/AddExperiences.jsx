@@ -1,16 +1,38 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
+import { useDispatch } from "react-redux";
+import { addExperienceAction } from "../redux/actions/addExperienceAction";
 
 function AddExperiences() {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  /* stato locale per obj per la put */
+  const [objExperience, setObjExperience] = useState({
+    role: "",
+    company: "",
+    startDate: "",
+    endDate: null,
+    description: "",
+    area: "",
+  });
 
-  const handleSave = () => {
+  const handleSave = (e) => {
+    e.preventDefault();
     setShow(false);
   };
+
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    setObjExperience(e.target.value);
+  };
+
+  useEffect(() => {
+    dispatch(addExperienceAction());
+  }, [dispatch]);
 
   return (
     <>
@@ -21,13 +43,14 @@ function AddExperiences() {
           <Modal.Title>AGGIUNGI ESPERIENZA</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={handleSave}>
             <Form.Group className="mb-3" controlId="role">
               <Form.Label>Tipo di impiego</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Inserisci il tipo di impiego"
                 autoFocus
+                onChange={handleChange}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="company">
@@ -53,16 +76,15 @@ function AddExperiences() {
               <Form.Label>Luogo</Form.Label>
               <Form.Control type="text" placeholder="Luogo" />
             </Form.Group>
+            <Button variant="secondary" onClick={handleClose}>
+              Chiudi
+            </Button>
+            <Button type="submit" variant="primary">
+              Salva
+            </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Chiudi
-          </Button>
-          <Button variant="primary" onClick={handleSave}>
-            Salva
-          </Button>
-        </Modal.Footer>
+        {/* <Modal.Footer></Modal.Footer> */}
       </Modal>
     </>
   );

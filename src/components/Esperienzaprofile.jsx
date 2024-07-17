@@ -21,9 +21,8 @@ const EsperienzaProfile = () => {
         <h2>Esperienza</h2>
         <div className="d-flex justify-content-between">
           <AddExperiences />
-        
-         <AddExperiences/>
-         <EditExperiences/>
+
+          <EditExperiences />
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
