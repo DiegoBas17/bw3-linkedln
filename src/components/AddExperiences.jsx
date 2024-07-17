@@ -22,6 +22,7 @@ function AddExperiences() {
 
   const handleSave = (e) => {
     e.preventDefault();
+
     setShow(false);
   };
 
