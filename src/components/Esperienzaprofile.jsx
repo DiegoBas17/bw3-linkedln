@@ -11,7 +11,7 @@ const EsperienzaProfile = () => {
 
   useEffect(() => {
     dispatch(getExperiencesAction());
-  }, []);
+  }, [dispatch]);
 
   console.log(experiences);
 

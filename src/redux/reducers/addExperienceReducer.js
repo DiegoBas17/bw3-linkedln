@@ -8,7 +8,6 @@ const addExperienceReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_EXPERIENCE:
       return {
-        ...state,
         experienceObj: action.payload,
       };
 

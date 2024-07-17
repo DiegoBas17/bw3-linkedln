@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
@@ -19,21 +18,17 @@ function AddExperiences() {
     area: "",
   });
   console.log("objExperience", objExperience);
+  const dispatch = useDispatch();
 
   const handleSave = (e) => {
     e.preventDefault();
+    dispatch(addExperienceAction(objExperience));
     setShow(false);
   };
-
-  const dispatch = useDispatch();
 
   const handleFieldChange = (propertyName, propertyValue) => {
     setObjExperience({ ...objExperience, [propertyName]: propertyValue });
   };
-
-  useEffect(() => {
-    dispatch(addExperienceAction());
-  }, [dispatch]);
 
   return (
     <>
@@ -53,41 +48,55 @@ function AddExperiences() {
                 autoFocus
                 onChange={(e) => {
                   handleFieldChange("role", e.target.value);
-                }} required
+                }}
+                required
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="company">
               <Form.Label>Azienda</Form.Label>
-              <Form.Control type="text" placeholder="Inserisci l'azienda" 
-               onChange={(e) => {
-                handleFieldChange("company", e.target.value);
-              }} required/>
+              <Form.Control
+                type="text"
+                placeholder="Inserisci l'azienda"
+                onChange={(e) => {
+                  handleFieldChange("company", e.target.value);
+                }}
+                required
+              />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="Sdate">
+            <Form.Group className="mb-3" controlId="startDate">
               <Form.Label>Inizio Periodo</Form.Label>
-              <Form.Control type="date"
-              min={new Date().toISOString().split(".")[0].slice(0, -3)}
-              onChange={e => handleFieldChange("Sdate", e.target.value)}
-              required />
+              <Form.Control
+                type="date"
+                min={new Date().toISOString().split(".")[0].slice(0, -3)}
+                onChange={(e) => handleFieldChange("startDate", e.target.value)}
+                required
+              />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="Edate">
+            <Form.Group className="mb-3" controlId="endDate">
               <Form.Label>Fine Periodo (facoltativo)</Form.Label>
-              <Form.Control type="date"
-               min={new Date().toISOString().split(".")[0].slice(0, -3)}
-               onChange={e => handleFieldChange("Edate", e.target.value)} />
+              <Form.Control
+                type="date"
+                min={new Date().toISOString().split(".")[0].slice(0, -3)}
+                onChange={(e) => handleFieldChange("endDate", e.target.value)}
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="description">
               <Form.Label>Descrizione</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Descrivi la tua esperienza"
-                onChange={e=> handleFieldChange("description", e.target.value)} required
+                onChange={(e) => handleFieldChange("description", e.target.value)}
+                required
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="Area">
               <Form.Label>Luogo</Form.Label>
-              <Form.Control type="text" placeholder="Luogo"
-               onChange={e=> handleFieldChange("area", e.target.value)} required />
+              <Form.Control
+                type="text"
+                placeholder="Luogo"
+                onChange={(e) => handleFieldChange("area", e.target.value)}
+                required
+              />
             </Form.Group>
             <Button variant="secondary" onClick={handleClose}>
               Chiudi
