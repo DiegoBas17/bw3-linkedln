@@ -1,12 +1,13 @@
 import { useDispatch } from "react-redux";
 import AddExperiences from "./AddExperiences";
+import EditExperiences from "./EditExperiences";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getExperiencesAction } from "../redux/actions/getExperiecesAction";
-//import EditExperiences from "./EditExperiences";
-import ModificaEsperienza from "./ModificaEsperienza";
+import { Pencil } from "react-bootstrap-icons";
+//import { useState } from "react";
 
-const EsperienzaProfile = () => {
+const ModificaEsperienza = () => {
   const dispatch = useDispatch();
   const experiences = useSelector((state) => state.experiences.list);
 
@@ -14,17 +15,13 @@ const EsperienzaProfile = () => {
     dispatch(getExperiencesAction());
   }, [dispatch]);
 
-  console.log(experiences);
-
   return (
     <div className="p-3 border border-1 rounded-3 mt-3 bg-white">
       <div className="d-flex justify-content-between">
-        <h2>Esperienza</h2>
+        <h2>Modifica esperienze</h2>
         <div className="d-flex justify-content-between">
-          <AddExperiences style={{ cursor: "pointer" }} />
-          <ModificaEsperienza />
-
-          {/* <Pencil onClick={handlePencilClick} style={{ cursor: "pointer" }} /> */}
+          <AddExperiences />
+          <EditExperiences />
         </div>
       </div>
       {/* qualifica 1 */}
@@ -39,19 +36,24 @@ const EsperienzaProfile = () => {
             id="ember704"
             className="ivm-view-attr__img--centered EntityPhoto-square-3   evi-image lazy-image ember-view"
           />
+          <div className="d-flex justify-content-between">
+            <div>
+              <h5>{experience.role}</h5>
+              <p className="mb-0">{experience.description}</p>
+              <p className="mb-0">{experience.company}</p>
+              <p className="mb-0 text-secondary">
+                {experience.startDate} - {experience.endDate}
+              </p>
+              <p className=" text-secondary">{experience.area}</p>
+            </div>
 
-          <div>
-            <h5>{experience.role}</h5>
-            <p className="mb-0">{experience.description}</p>
-            <p className="mb-0">{experience.company}</p>
-            <p className="mb-0 text-secondary">
-              {experience.startDate} - {experience.endDate}
-            </p>
-            <p className=" text-secondary">{experience.area}</p>
+            <div>
+              <Pencil />
+            </div>
           </div>
         </div>
       ))}
     </div>
   );
 };
-export default EsperienzaProfile;
+export default ModificaEsperienza;

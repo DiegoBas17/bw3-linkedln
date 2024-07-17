@@ -1,25 +1,23 @@
-//import { getExperiencesAction } from "./getExperiecesAction";
+import { experiences, myId } from "./addExperienceAction";
 import { API_KEY, URL_USER } from "./getUserAction";
 
-export const ADD_EXPERIENCE = "ADD_EXPERIENCE";
-export const myId = "66952362196d7b0015d6b544/";
-export const experiences = "experiences";
+export const EDIT_EXPERIENCE = "EDIT_EXPERIENCE";
 
-export const addExperienceAction = (value) => {
+export const editExperienceAction = (value) => {
   return async (dispatch) => {
     try {
       const resp = await fetch(URL_USER + myId + experiences, {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify(value),
         headers: {
-          "Content-Type": "application/json",
           Authorization: API_KEY,
+          "Content-Type": "application/json",
         },
       });
       if (resp.ok) {
-        alert("Commento inviato");
+        alert("Esperienza modificata correttamente.");
         dispatch({
-          type: ADD_EXPERIENCE,
+          type: EDIT_EXPERIENCE,
           payload: value,
         });
       } else {

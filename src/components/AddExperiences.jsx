@@ -13,7 +13,7 @@ function AddExperiences() {
     role: "",
     company: "",
     startDate: "",
-    endDate: null,
+    endDate: "",
     description: "",
     area: "",
   });
