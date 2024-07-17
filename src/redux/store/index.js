@@ -4,6 +4,7 @@ import otherUsersReducer from "../reducers/otherUsersReducer";
 import experiencesReducer from "../reducers/experiencesReducer";
 import addExperienceReducer from "../reducers/addExperienceReducer";
 import editExperienceReducer from "../reducers/editExperienceReducer";
+import arrayPostHomeReducer from "../reducers/arrayPostHomeReducer";
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   experiences: experiencesReducer,
   addExperience: addExperienceReducer,
   editExperience: editExperienceReducer,
+  arrayPostHome: arrayPostHomeReducer,
 });
 
 const store = configureStore({

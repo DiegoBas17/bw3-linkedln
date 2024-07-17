@@ -1,32 +1,15 @@
-import { useEffect, useState } from "react";
-import { API_KEY } from "../redux/actions/getUserAction";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPostNotizieAction } from "../redux/actions/arrayPostHomeAction";
+import { useEffect } from "react";
 
 const NotizieHome = () => {
-  const [arrayPostNotizie, setArrayPostNotizie] = useState([]);
-
-  /* fetch get per visualizzare i post*/
-  const fetchPostNotizie = () => {
-    fetch("https://striveschool-api.herokuapp.com/api/posts/", {
-      headers: {
-        Authorization: API_KEY,
-      },
-    })
-      .then((resp) => {
-        if (resp.ok) {
-          return resp.json();
-        } else {
-          throw new Error("Errore nel reperimento dei commenti");
-        }
-      })
-      .then((arrayPostNotizie) => {
-        setArrayPostNotizie(arrayPostNotizie);
-      })
-      .catch((err) => alert(err));
-  };
-
+  const dispatch = useDispatch();
+  const arrayPostNotizie = useSelector(
+    (state) => state.arrayPostHome.arrayPost
+  );
   useEffect(() => {
-    fetchPostNotizie();
-  }, []);
+    dispatch(fetchPostNotizieAction());
+  }, [dispatch]);
 
   const timeTrascorso = (dataISO) => {
     /* Data specifica (formato ISO) */
@@ -49,7 +32,7 @@ const NotizieHome = () => {
       return `${diffInMinutes} minuti`;
     }
   };
-
+  /*   console.log("arrayPostNotizie", arrayPostNotizie); */
   return (
     <div>
       {arrayPostNotizie.toReversed().map((post, index) => {

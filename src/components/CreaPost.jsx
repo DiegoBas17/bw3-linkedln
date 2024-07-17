@@ -5,17 +5,18 @@ import {
   CalendarEvent,
   ImageFill,
 } from "react-bootstrap-icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { API_KEY } from "../redux/actions/getUserAction";
+import { fetchPostNotizieAction } from "../redux/actions/arrayPostHomeAction";
 
 const CreaPost = () => {
   const user = useSelector((state) => state.user.userObj);
   const userId = user?._id;
-  const [newpost, setNewpost] = useState(null);
-  /* console.log(newpost); */
-  /* fetch per la "POST" dei post */
+  const [newpost, setNewpost] = useState("");
+  const dispatch = useDispatch();
+
   const fetchForPostNotizie = (post) => {
     fetch("https://striveschool-api.herokuapp.com/api/posts/", {
       method: "POST",
@@ -28,6 +29,7 @@ const CreaPost = () => {
       .then((resp) => {
         if (resp.ok) {
           alert("Commento aggiunto con successo!");
+          dispatch(fetchPostNotizieAction());
         } else {
           throw new Error("Errore nel reperimento dei commenti");
         }
@@ -36,7 +38,8 @@ const CreaPost = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchForPostNotizie(newpost);
+    fetchForPostNotizie({ text: newpost });
+    setNewpost("");
   };
   return (
     <>
@@ -60,10 +63,9 @@ const CreaPost = () => {
                   <Form.Control
                     placeholder="Crea un post"
                     className="border border-0"
+                    value={newpost}
                     onChange={(e) => {
-                      setNewpost({
-                        text: e.target.value,
-                      });
+                      setNewpost(e.target.value);
                     }}
                   />
                 </Form>
