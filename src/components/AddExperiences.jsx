@@ -85,7 +85,9 @@ function AddExperiences() {
               <Form.Control
                 type="text"
                 placeholder="Descrivi la tua esperienza"
-                onChange={(e) => handleFieldChange("description", e.target.value)}
+                onChange={(e) =>
+                  handleFieldChange("description", e.target.value)
+                }
                 required
               />
             </Form.Group>

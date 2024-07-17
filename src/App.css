@@ -16,7 +16,7 @@ body {
 }
 .leftSidebar {
   position: relative;
-  width: 15rem;
+  /* width: 15rem; */
 }
 
 .leftSidebarSubtitle1 {

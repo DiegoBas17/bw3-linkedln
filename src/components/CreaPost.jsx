@@ -15,7 +15,7 @@ const CreaPost = () => {
   return (
     <>
       {userId && (
-        <div className="rounded-2 bg-white m-3 p-3 border border-2">
+        <div className="rounded-2 bg-white p-3 border border-2">
           <Row className="align-items-center g-2">
             <Col xs="2" sm="1">
               <Link to={"/profile/" + userId}>
@@ -31,7 +31,7 @@ const CreaPost = () => {
             <Col xs="10" sm="11">
               <div className="rounded-pill border border-1 p-2 border-secondary mx-2">
                 <Form.Control
-                  placeholder="Username"
+                  placeholder="Crea un post"
                   className="border border-0"
                 />
               </div>
