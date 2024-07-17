@@ -7,14 +7,14 @@ const experiences = "experiences";
 export const addExperienceAction = () => {
   return async (dispatch) => {
     try {
-      let resp = await fetch(URL_USER + myId + experiences, {
+      const resp = await fetch(URL_USER + myId + experiences, {
         method: "POST",
         headers: {
           Authorization: API_KEY,
         },
       });
       if (resp.ok) {
-        let experienceObj = await resp.json();
+        const experienceObj = await resp.json();
         dispatch({
           type: ADD_EXPERIENCE,
           payload: experienceObj,

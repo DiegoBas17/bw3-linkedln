@@ -7,9 +7,17 @@ import { addExperienceAction } from "../redux/actions/addExperienceAction";
 
 function AddExperiences() {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  /* stato locale per obj per la put */
+  const [objExperience, setObjExperience] = useState({
+    role: "",
+    company: "",
+    startDate: "",
+    endDate: null,
+    description: "",
+    area: "",
+  });
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -17,6 +25,10 @@ function AddExperiences() {
   };
 
   const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    setObjExperience(e.target.value);
+  };
 
   useEffect(() => {
     dispatch(addExperienceAction());
@@ -34,7 +46,12 @@ function AddExperiences() {
           <Form onSubmit={handleSave}>
             <Form.Group className="mb-3" controlId="role">
               <Form.Label>Tipo di impiego</Form.Label>
-              <Form.Control type="text" placeholder="Inserisci il tipo di impiego" autoFocus />
+              <Form.Control
+                type="text"
+                placeholder="Inserisci il tipo di impiego"
+                autoFocus
+                onChange={handleChange}
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="company">
               <Form.Label>Azienda</Form.Label>
@@ -50,7 +67,10 @@ function AddExperiences() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="description">
               <Form.Label>Descrizione</Form.Label>
-              <Form.Control type="text" placeholder="Descrivi la tua esperienza" />
+              <Form.Control
+                type="text"
+                placeholder="Descrivi la tua esperienza"
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="Area">
               <Form.Label>Luogo</Form.Label>
