@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Card, Container, Form, InputGroup } from "react-bootstrap";
-import { Search } from "react-bootstrap-icons";
+import { ArrowRight,  Search } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchLavoro } from "../redux/actions/lavoroLista";
 
@@ -14,7 +14,7 @@ const LavoroParteCentrale = () => {
   }, []);
   return (
     <Container>
-      <Form className="nav-search mb-3">
+      <Form className="nav-search my-3">
         <InputGroup>
           <InputGroup.Text
             id="search-icon"
@@ -34,23 +34,28 @@ const LavoroParteCentrale = () => {
         </InputGroup>
       </Form>
 
-      <Card>
+      <Card className="mb-4">
+        <div className="m-3">
         <h3>Le principali offerte di lavoro per te</h3>
         <p>
           Sulla base del tuo profilo e della tua cronologia delle ricerche
-        </p>{" "}
-        {lavoro.map((lavoro) => {
+        </p></div>
+        {lavoro.slice(0,10).map((lavoro) => {
           return (
             <Card.Body key={lavoro._id}>
               <Card.Title>{lavoro.title}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Azienda</Card.Subtitle>
-              <Card.Text>Località</Card.Text>
-              <Card.Link href="#">Promosso</Card.Link>
-              <Card.Link href="#">Candidatura semplice</Card.Link>
+              <Card.Subtitle className="mb-2 text-muted">{lavoro.company_name}</Card.Subtitle>
+              <Card.Text>{lavoro.candidate_required_location}</Card.Text>
+              <Card.Link href="#" style={{textDecoration: 'none', color: "gray", fontSize:"0.9rem"}}>Promosso</Card.Link>
+              <Card.Link href="#" style={{textDecoration: 'none', color: "gray", fontSize:"0.9rem"}}>Candidatura semplice</Card.Link>
+              <hr/>
             </Card.Body>
+            
           );
         })}
+        <h5 className="text-center pb-3">Mostra tutto <ArrowRight/></h5>
       </Card>
+      
     </Container>
   );
 };
