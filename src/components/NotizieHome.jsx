@@ -98,8 +98,15 @@ const NotizieHome = () => {
               className="p-3 border border-1 rounded-3 mt-3 bg-white"
             >
               <div className="d-flex justify-content-between align-items-center">
-                <h5>{post.username}</h5>
-                <img src={post.user?.image} alt="" height={25} />
+                <div className="d-flex">
+                  <img
+                    src={post.user?.image}
+                    alt=""
+                    style={{ height: "24px", width: "24px" }}
+                    className="rounded-circle"
+                  />
+                  <h5>{post.username}</h5>
+                </div>
                 {userMeId === post.user._id && (
                   <div>
                     <div className="d-inline me-2">
