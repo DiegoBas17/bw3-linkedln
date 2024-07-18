@@ -58,7 +58,6 @@ const NotizieHome = () => {
     setPost(post);
     setShow(true);
   };
-  console.log(post);
 
   const editPost = async (postId, textPost) => {
     try {
@@ -100,6 +99,7 @@ const NotizieHome = () => {
             >
               <div className="d-flex justify-content-between align-items-center">
                 <h5>{post.username}</h5>
+                <img src={post.user?.image} alt="" height={25} />
                 {userMeId === post.user._id && (
                   <div>
                     <div className="d-inline me-2">
@@ -126,7 +126,7 @@ const NotizieHome = () => {
                   </div>
                 )}
               </div>
-              <img src={post.user?.image} alt="" height={25} />
+              <img src={post?.image} alt="" height={150} />
               <p>
                 {timeTrascorso(post.createdAt)}
                 &middot;
