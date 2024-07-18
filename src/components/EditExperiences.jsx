@@ -42,8 +42,9 @@ const EditExperiences = ({ experience }) => {
     setShow(false);
   };
 
-  const handleDelete = (experience) => {
-    dispatch(deleteExperienceAction(experience));
+  const handleDelete = (experienceId) => {
+    dispatch(deleteExperienceAction(experienceId));
+    setShow(false);
   };
 
   const handleFieldChange = (propertyName, propertyValue) => {
