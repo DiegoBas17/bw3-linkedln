@@ -1,7 +1,9 @@
+import LavoroParteCentrale from "./LavoreParteCentrale";
+
 const LavoroPage = () => {
   return (
     <div>
-      <h1>ciao</h1>
+   <LavoroParteCentrale/>
     </div>
   );
 };
