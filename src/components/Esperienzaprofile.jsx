@@ -11,11 +11,13 @@ import EditExperiences from "./EditExperiences";
 const EsperienzaProfile = () => {
   const dispatch = useDispatch();
   const experiences = useSelector((state) => state.experiences.list);
+  const userMe = useSelector((state) => state.user.userObj);
   const userSelected = useSelector((state) => state.otherUsers.userSelected);
+  const user = userSelected ? userSelected : userMe;
 
   useEffect(() => {
-    dispatch(getExperiencesAction());
-  }, [dispatch]);
+    dispatch(getExperiencesAction(user._id));
+  }, [user]);
 
   console.log(experiences);
 
