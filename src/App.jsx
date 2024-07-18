@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getUserAction } from "./redux/actions/getUserAction";
 import HomePage from "./components/HomePage";
+import LavoroPage from "./components/LavoroPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/profile/:_id" element={<ProfilePage />} />
+        <Route path="/lavoro/" element={<LavoroPage />} />
       </Routes>
     </BrowserRouter>
   );
