@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 const JobLeftSidebar = () => {
   return (
     <div>
-      <div className="d-flex flex-column gap-4 bg-white rounded-3 mt-5 ms-3 p-4">
+      <div className="d-flex flex-column gap-4 bg-white rounded-3 mt-3 ms-3 p-4">
         <div className="d-flex align-items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"

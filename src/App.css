@@ -127,3 +127,12 @@ body {
 .no-text-decoration {
   text-decoration: none;
 }
+
+#job-right-sidebar {
+  font-size: 0.8rem;
+}
+
+#job-right-sidebar button {
+  font-size: 0.8rem;
+  padding: 0;
+}

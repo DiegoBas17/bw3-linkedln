@@ -1,8 +1,9 @@
 import { Dropdown } from "react-bootstrap";
+import { CaretDownFill, Linkedin } from "react-bootstrap-icons";
 
 const JobRightSidebar = () => {
   return (
-    <div id="ember315" className="ember-view mt-5">
+    <div id="job-right-sidebar" className="ember-view mt-3 ">
       <ul className="global-footer-compact__content global-footer-compact__links list-unstyled">
         <li className="global-footer-compact__item ">
           <a
@@ -41,10 +42,10 @@ const JobRightSidebar = () => {
           </a>
         </li>
         <li className="global-footer-compact__item">
-          <Dropdown>
-            <Dropdown.Toggle id="privacy-dropdown-toggle" className="text-decoration-none bg-transparent border-0 text-secondary">
+          <Dropdown id="job-right-sidebar">
+            <Dropdown.Toggle id="privacy-dropdown-toggle" className="text-decoration-none bg-transparent border-0 text-secondary ">
               <span className="text-align-left">
-                Privacy e Condizioni
+                Privacy e Condizioni <CaretDownFill />
                 <svg
                   role="none"
                   aria-hidden="true"
@@ -107,7 +108,7 @@ const JobRightSidebar = () => {
           <Dropdown>
             <Dropdown.Toggle id="privacy-dropdown-toggle" className="text-decoration-none bg-transparent border-0 text-secondary">
               <span className="text-align-left">
-                Servizi alle aziende
+                Servizi alle aziende <CaretDownFill />
                 <svg
                   role="none"
                   aria-hidden="true"
@@ -165,27 +166,12 @@ const JobRightSidebar = () => {
           </a>
         </li>
       </ul>
-      <div className="global-footer-compact__content t-12 t-normal text-align-center clear-both text-secondary" id="compactfooter-copyright">
-        <svg
-          role="img"
-          aria-hidden="false"
-          aria-label="LinkedIn"
-          className="global-footer-compact__linkedin-logo"
-          xmlns="http://www.w3.org/2000/svg"
-          width="56"
-          height="14"
-          viewBox="0 0 56 14"
-          data-supported-dps="56x14"
-          data-test-icon="linkedin-logo-blue-xxsmall"
-        >
-          <svg display="var(--hue-web-svg-display-light)">
-            <image href="https://static.licdn.com/aero-v1/sc/h/aahlc8ivbnmk0t3eyz8as5gvr" x="0" y="0" width="56" height="14"></image>
-          </svg>
-          <svg display="var(--hue-web-svg-display-dark)">
-            <image href="https://static.licdn.com/aero-v1/sc/h/34bl5fp6gi8t0nscavw94xa7x" x="0" y="0" width="56" height="14"></image>
-          </svg>
-        </svg>
-        LinkedIn Corporation © 2024
+      <div className="d-flex text-center" id="compactfooter-copyright">
+        <div className="d-flex ">
+          <strong className="text-primary">Linked</strong>
+          <Linkedin className="mt-1" fill="#0A66C2" />
+          LinkedIn Corporation © 2024
+        </div>
       </div>
       <div id="ember346" className="ember-view"></div>
     </div>
