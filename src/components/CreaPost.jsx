@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 import {
   BlockquoteLeft,
   CalendarEvent,
@@ -16,6 +16,10 @@ const CreaPost = () => {
   const userId = user?._id;
   const [newpost, setNewpost] = useState("");
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const fetchForPostNotizie = (post) => {
     fetch("https://striveschool-api.herokuapp.com/api/posts/", {
@@ -29,17 +33,52 @@ const CreaPost = () => {
       .then((resp) => {
         if (resp.ok) {
           alert("Commento aggiunto con successo!");
-          dispatch(fetchPostNotizieAction());
+          return resp.json();
         } else {
           throw new Error("Errore nel reperimento dei commenti");
         }
       })
+      .then((data) => {
+        if (selectedFile) {
+          fetchForPostImage(data._id);
+          dispatch(fetchPostNotizieAction());
+        }
+      })
       .catch((err) => alert(err));
   };
+  const onChangeFile = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
+  const fetchForPostImage = (id) => {
+    const formData = new FormData();
+    formData.append("post", selectedFile);
+    fetch("https://striveschool-api.herokuapp.com/api/posts/" + id, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization: API_KEY,
+      },
+    })
+      .then((resp) => {
+        if (resp.ok) {
+          alert("Immagine aggiunta con successo!");
+          dispatch(fetchPostNotizieAction());
+        } else {
+          throw new Error("Errore nel reperimento del img");
+        }
+      })
+      .catch((err) => alert(err));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleClose();
     fetchForPostNotizie({ text: newpost });
     setNewpost("");
+    setSelectedFile(null);
   };
   return (
     <>
@@ -51,24 +90,20 @@ const CreaPost = () => {
                 <img
                   src={user?.image}
                   alt="fotoProfilo"
-                  className="rounded-circle text-center
-            "
+                  className="rounded-circle text-center"
                   style={{ width: "54px" }}
                 />
               </Link>
             </Col>
             <Col>
-              <div className="rounded-pill border border-1 p-2 border-secondary mx-2">
-                <Form onSubmit={handleSubmit}>
-                  <Form.Control
-                    placeholder="Crea un post"
-                    className="border border-0"
-                    value={newpost}
-                    onChange={(e) => {
-                      setNewpost(e.target.value);
-                    }}
-                  />
-                </Form>
+              <div
+                className="rounded-pill border border-1 p-2 border-secondary mx-2"
+                onClick={handleShow}
+              >
+                <Form.Control
+                  placeholder="Crea un post"
+                  className="border border-0"
+                />
               </div>
             </Col>
           </Row>
@@ -90,6 +125,34 @@ const CreaPost = () => {
           </Row>
         </div>
       )}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modifica post</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Control
+                type="text"
+                autoFocus
+                value={newpost}
+                onChange={(e) => {
+                  setNewpost(e.target.value);
+                }}
+              />
+            </Form.Group>
+            <Form.Control type="file" onChange={onChangeFile} />
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleSubmit}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
