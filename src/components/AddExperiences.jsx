@@ -85,9 +85,7 @@ function AddExperiences() {
               <Form.Control
                 type="text"
                 placeholder="Descrivi la tua esperienza"
-                onChange={(e) =>
-                  handleFieldChange("description", e.target.value)
-                }
+                onChange={(e) => handleFieldChange("description", e.target.value)}
                 required
               />
             </Form.Group>
@@ -100,12 +98,14 @@ function AddExperiences() {
                 required
               />
             </Form.Group>
-            <Button variant="secondary" onClick={handleClose}>
-              Chiudi
-            </Button>
-            <Button type="submit" variant="primary">
-              Salva
-            </Button>
+            <div className="d-flex justify-content-end">
+              <Button variant="secondary" onClick={handleClose}>
+                Chiudi
+              </Button>
+              <Button className="ms-2" type="submit" variant="primary">
+                Salva
+              </Button>
+            </div>
           </Form>
         </Modal.Body>
         {/* <Modal.Footer></Modal.Footer> */}

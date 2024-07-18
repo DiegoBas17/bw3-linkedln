@@ -115,16 +115,18 @@ const EditExperiences = ({ experience }) => {
                 placeholder="Luogo"
               />
             </Form.Group>
-            <div>
-              <Button variant="secondary" onClick={handleClose}>
-                Chiudi
-              </Button>
-              <Button type="submit" variant="primary">
-                Salva Modifica
-              </Button>
+            <div className="d-flex justify-content-between">
               <div>
                 <Button onClick={() => handleDelete(experience._id)} variant="danger">
                   Elimina
+                </Button>
+              </div>
+              <div>
+                <Button variant="secondary" onClick={handleClose}>
+                  Chiudi
+                </Button>
+                <Button className="ms-2" type="submit" variant="primary">
+                  Salva Modifica
                 </Button>
               </div>
             </div>
