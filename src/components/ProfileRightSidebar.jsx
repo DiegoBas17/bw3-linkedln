@@ -21,7 +21,7 @@ const ProfileRightSidebar = () => {
 
   return (
     <>
-      <Container className="border border-secondary rounded-2 mt-2 bg-white">
+      <Container className="sidebar-profile rounded-2 mt-2 bg-white">
         <div className="d-flex justify-content-between border-bottom mt-2 ">
           <div>
             <h4>Lingua del profilo</h4>
@@ -42,16 +42,17 @@ const ProfileRightSidebar = () => {
         </div>
       </Container>
       {/* inserzione pubblicità */}
-      <Container className="border border-secondary rounded-2 mt-2 px-0">
+      <Container className="sidebar-profile rounded-2 mt-2 px-0">
         <div className="right-side-profile">
           <img
+            className="rounded-2"
             src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
             alt="hiring on LinkedIn"
           />
         </div>
       </Container>
       {/* ALTRI UTENTI */}
-      <Container className="border border-secondary rounded-2 mt-2 mb-2 bg-white">
+      <Container className="sidebar-profile rounded-2 mt-2 mb-2 bg-white">
         <div>
           <h4>Altri profili simili</h4>
         </div>
@@ -90,9 +91,10 @@ const ProfileRightSidebar = () => {
         </div>
       </Container>
       {/* inserzione pubblicità */}
-      <Container className="border border-secondary rounded-2 mt-2 px-0 inserzione-pubb">
+      <Container className="sidebar-profile rounded-2 mt-2 px-0 inserzione-pubb">
         <div className="right-side-profile">
           <img
+            className="rounded-2"
             src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
             alt="hiring on LinkedIn"
           />

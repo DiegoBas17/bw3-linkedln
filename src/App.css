@@ -126,6 +126,7 @@ body {
 .inserzione-pubb {
   position: sticky;
   top: 100px;
+  border: 1px solid rgba(198, 198, 198, 0.459);
 }
 .footer-notizie {
   line-height: 23px;
@@ -136,4 +137,11 @@ body {
 .footer-notizie a {
   color: grey;
   text-decoration: none;
+}
+.sidebar-notizie {
+  background-color: white;
+  border: 1px solid rgba(198, 198, 198, 0.459);
+}
+.sidebar-profile {
+  border: 1px solid rgba(198, 198, 198, 0.459);
 }

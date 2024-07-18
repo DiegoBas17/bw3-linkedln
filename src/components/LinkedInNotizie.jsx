@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const LinkedInNotizie = () => {
   return (
     <Col md={3}>
-      <Container className="bg-light border border-secondary rounded-3">
+      <Container className="rounded-3 sidebar-notizie">
         <div className="d-flex justify-content-between ">
           <div>
             <h2>LinkedIn Notizie</h2>
@@ -58,7 +58,7 @@ const LinkedInNotizie = () => {
           </div>
         </div>
       </Container>
-      <Container className="border border-secondary rounded-2 mt-2 px-0 inserzione-pubb">
+      <Container className="rounded-2 mt-2 px-0 inserzione-pubb">
         <div className="right-side-profile">
           <img
             src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
@@ -66,7 +66,7 @@ const LinkedInNotizie = () => {
           />
         </div>
       </Container>
-      <Container className="justify-content-center mt-2 footer-notizie">
+      <Container className="justify-content-center mt-2  footer-notizie">
         <Row className="justify-content-center">
           <Col md={10} className="text-center">
             <Link className="link-nav">Informazione</Link>
