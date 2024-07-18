@@ -1,29 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPostNotizieAction } from "../redux/actions/arrayPostHomeAction";
 import { useEffect } from "react";
+import { Trash3 } from "react-bootstrap-icons";
 
 const NotizieHome = () => {
   const dispatch = useDispatch();
   const arrayPostNotizie = useSelector(
     (state) => state.arrayPostHome.arrayPost
   );
+  const userMe = useSelector((state) => state.user.userObj);
+  const userMeId = userMe?._id;
   useEffect(() => {
     dispatch(fetchPostNotizieAction());
   }, [dispatch]);
 
   const timeTrascorso = (dataISO) => {
-    /* Data specifica (formato ISO) */
     const specificDate = new Date(dataISO);
-    /* Data e ora correnti */
     const currentDate = new Date();
-    /*  Calcolo della differenza in millisecondi */
     const diffInMillis = currentDate - specificDate;
-    /*  Conversione della differenza in secondi e minuti */
     const diffInSeconds = Math.floor(diffInMillis / 1000);
     const diffInMinutes = Math.floor(diffInSeconds / 60);
     const diffInHours = Math.floor(diffInMinutes / 60);
     const diffInDays = Math.floor(diffInHours / 24);
-    /* Se le ore sono diverse, restituisce le ore trascorse */
     if (diffInDays > 0) {
       return `${diffInDays} giorni`;
     } else if (diffInHours > 0) {
@@ -32,7 +30,7 @@ const NotizieHome = () => {
       return `${diffInMinutes} minuti`;
     }
   };
-  /*   console.log("arrayPostNotizie", arrayPostNotizie); */
+
   return (
     <div>
       {arrayPostNotizie.toReversed().map((post, index) => {
@@ -41,10 +39,32 @@ const NotizieHome = () => {
             key={index}
             className="p-3 border border-1 rounded-3 mt-3 bg-white"
           >
-            <h5>{post.username}</h5>
+            <div className="d-flex justify-content-between align-items-center">
+              <h5>{post.username}</h5>
+              {userMeId === post.user._id && (
+                <div>
+                  <div className="d-inline me-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="21px"
+                      width="21px"
+                      id="edit-small"
+                      aria-hidden="true"
+                      role="none"
+                      data-supported-dps="16x16"
+                      fill="currentColor"
+                    >
+                      <path d="M14.13 1.86a3 3 0 00-4.17 0l-7 7L1 15l6.19-2 6.94-7a3 3 0 000-4.16zm-8.36 9.71l-1.35-1.34L9.64 5 11 6.35z" />
+                    </svg>
+                  </div>
+                  <Trash3 fill="red" />
+                </div>
+              )}
+            </div>
             <img src={post.user?.image} alt="" height={25} />
             <p>
-              {timeTrascorso(post.createdAt)}{" "}
+              {timeTrascorso(post.createdAt)}
+              &middot;
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
