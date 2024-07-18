@@ -14,13 +14,9 @@ const LavoroParteCentrale = () => {
   }, []);
   return (
     <Container>
-      <Form className="nav-search mb-3">
+      <Form className="nav-search my-33">
         <InputGroup>
-          <InputGroup.Text
-            id="search-icon"
-            className="search-input pe-2"
-            style={{ backgroundColor: "#EDF3F8" }}
-          >
+          <InputGroup.Text id="search-icon" className="search-input pe-2" style={{ backgroundColor: "#EDF3F8" }}>
             <Search />
           </InputGroup.Text>
           <Form.Control
@@ -36,9 +32,7 @@ const LavoroParteCentrale = () => {
 
       <Card>
         <h3>Le principali offerte di lavoro per te</h3>
-        <p>
-          Sulla base del tuo profilo e della tua cronologia delle ricerche
-        </p>{" "}
+        <p>Sulla base del tuo profilo e della tua cronologia delle ricerche</p>{" "}
         {lavoro.map((lavoro) => {
           return (
             <Card.Body key={lavoro._id}>
