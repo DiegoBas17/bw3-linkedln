@@ -2,8 +2,8 @@
 import { API_KEY, URL_USER } from "./getUserAction";
 
 export const ADD_EXPERIENCE = "ADD_EXPERIENCE";
-export const myId = "66952362196d7b0015d6b544/";
-export const experiences = "experiences";
+const myId = "66952362196d7b0015d6b544/";
+const experiences = "experiences/";
 
 export const addExperienceAction = (value) => {
   return async (dispatch) => {
@@ -17,7 +17,7 @@ export const addExperienceAction = (value) => {
         },
       });
       if (resp.ok) {
-        alert("Commento inviato");
+        alert("Aggiunta nuova esperienza");
         dispatch({
           type: ADD_EXPERIENCE,
           payload: value,

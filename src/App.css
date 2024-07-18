@@ -123,3 +123,7 @@ body {
 .dropdown-toggle::before {
   display: none !important;
 }
+
+.no-text-decoration {
+  text-decoration: none;
+}

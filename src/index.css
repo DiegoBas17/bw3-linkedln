@@ -8,3 +8,7 @@
 .logo {
   width: 50px;
 }
+
+.no-text-decoration {
+  text-decoration: none;
+}
