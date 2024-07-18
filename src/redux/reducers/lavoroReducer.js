@@ -1,19 +1,24 @@
-import { GET_LAVORO } from "../actions/lavoroLista"
+import { GET_LAVORO, SEARCH_LAVORO } from "../actions/lavoroLista";
 
 const initialState = {
-    lavoro: []
-}
+  lavori: [],
+};
 
-const lavoroReducer = (state = initialState, action)=>{
-    switch(action.type){
-        case GET_LAVORO: 
-        return {
-            lavoro: action.playload
+const lavoroReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_LAVORO:
+      return {
+        ...state,
+        lavori: action.playload,
+      };
+    case SEARCH_LAVORO:
+      return {
+        ...state,
+        lavori: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
-        };
-        default:
-        return state;
-    }
-}
-
-export default lavoroReducer
+export default lavoroReducer;

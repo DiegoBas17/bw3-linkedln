@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   editExperience: editExperienceReducer,
   arrayPostHome: arrayPostHomeReducer,
   deleteExperience: deleteExperienceReducer,
-  lavoroLista : lavoroReducer
+  lavoroLista: lavoroReducer,
 });
 
 const store = configureStore({
