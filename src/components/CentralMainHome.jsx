@@ -18,17 +18,12 @@ const CentralMain = () => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">
-              Più Rilevanti per primi
-            </Dropdown.Item>
-            <Dropdown.Item href="#/action-2">
-              Più recnti per primi
-            </Dropdown.Item>
+            <Dropdown.Item href="#/action-1">Più Rilevanti per primi</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Più recnti per primi</Dropdown.Item>
 
-            <p>
-              Questa opzione influirà soltanto sulla visualizzazione del tuo
-              feed attuale su questo dispositivo. Puoi modificare la
-              visualizzazione predefinita nelle Impostazioni.
+            <p className="ms-2">
+              Questa opzione influirà soltanto sulla visualizzazione del tuo feed attuale su questo dispositivo. Puoi
+              modificare la visualizzazione predefinita nelle Impostazioni.
             </p>
           </Dropdown.Menu>
         </Dropdown>
