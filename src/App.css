@@ -123,3 +123,17 @@ body {
 .dropdown-toggle::before {
   display: none !important;
 }
+.inserzione-pubb {
+  position: sticky;
+  top: 100px;
+}
+.footer-notizie {
+  line-height: 23px;
+  font-size: 13px;
+  position: sticky;
+  top: 380px;
+}
+.footer-notizie a {
+  color: grey;
+  text-decoration: none;
+}
