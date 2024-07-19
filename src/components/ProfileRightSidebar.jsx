@@ -53,14 +53,14 @@ const ProfileRightSidebar = () => {
       </Container>
       {/* ALTRI UTENTI */}
       <Container className="sidebar-profile rounded-2 mt-2 mb-2 bg-white">
-        <div>
+        <div className="my-3 ms-2">
           <h4>Altri profili simili</h4>
         </div>
         {/* utente 1 */}
         {users.slice(0, 5).map((user) => (
           <div className="d-flex 2 border-bottom mt-2" key={user._id}>
             <div>
-              <img src={user.image} alt="" width={45} />
+              <img src={user.image} alt="" width={45} className="rounded-circle" />
             </div>
             <div>
               <div className="ms-2 mb-2">
