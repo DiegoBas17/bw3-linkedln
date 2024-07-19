@@ -18,7 +18,7 @@ const CreaCommento = () => {
           <img src={userMe.image} alt="" style={{ height: "2.4rem", width: "2.4rem", overflow: "hidden" }} />
         </div>
         <div>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={() => handleSubmit}>
             <Form.Control
               value={comment}
               type="text"

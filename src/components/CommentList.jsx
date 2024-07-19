@@ -18,10 +18,10 @@ const CommentList = () => {
     <Container>
       {/* <List.Group>
         {comments.map((comment) => (
-          <List.Items key={comment._id}>
+          <div key={comment._id}>
             <div>{comment.author}</div>
             <div>{comment.comment}</div>
-          </List.Items>
+          </div>
         ))}
       </List.Group> */}
     </Container>
