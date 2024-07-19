@@ -147,7 +147,10 @@ const EditExperiences = ({ experience }) => {
                 placeholder="Luogo"
               />
             </Form.Group>
-            <Form.Control type="file" onChange={onChangeFile} />
+            <Form.Group className="mb-3" controlId="Immagine">
+              <Form.Label>Aggiungi Immagine</Form.Label>
+              <Form.Control type="file" onChange={onChangeFile} />
+            </Form.Group>
             <div className="d-flex justify-content-between">
               <div>
                 <Button
