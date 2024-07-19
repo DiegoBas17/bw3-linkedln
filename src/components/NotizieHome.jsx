@@ -91,7 +91,7 @@ const NotizieHome = () => {
   return (
     <>
       <div>
-        {arrayPostNotizie.toReversed().map((post, index) => {
+        {arrayPostNotizie.map((post, index) => {
           return (
             <div
               key={index}

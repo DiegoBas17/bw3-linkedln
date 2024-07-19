@@ -72,7 +72,7 @@ const EditExperiences = ({ experience }) => {
   };
 
   const handleDelete = (experienceId) => {
-    dispatch(deleteExperienceAction(experienceId));
+    dispatch(deleteExperienceAction(userMe._id, experienceId));
     setShow(false);
   };
 
