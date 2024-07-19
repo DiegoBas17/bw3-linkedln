@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container, Form } from "react-bootstrap";
+import CommentList from "./CommentList";
 
 const CreaCommento = ({ user }) => {
   const [comment, setComment] = useState("");
@@ -23,11 +24,11 @@ const CreaCommento = ({ user }) => {
               }}
               required
               type="text"
-              placeholder="First name"
-              defaultValue="Mark"
+              placeholder="Aggiungi un commento..."
             />
           </Form>
         </div>
+        <CommentList />
       </div>
     </Container>
   );
