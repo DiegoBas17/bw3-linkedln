@@ -18,6 +18,7 @@ const CreaCommento = ({ post }) => {
 
   return (
     <Container>
+      <p>ciao diego</p>
       <div className="d-flex">
         <div className="rounded-circle overflow-hidden me-2">
           {userMe && (
