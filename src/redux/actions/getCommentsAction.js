@@ -7,7 +7,7 @@ export const getCommentsAction = () => {
     try {
       const resp = await fetch(`https://striveschool-api.herokuapp.com/api/comments/`, {
         headers: {
-          Authorization: key,
+          Authorization: "Bearer " + key,
         },
       });
       if (resp.ok) {

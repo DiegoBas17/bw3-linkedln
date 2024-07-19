@@ -11,7 +11,7 @@ const CommentList = () => {
 
   useEffect(() => {
     dispatch(getCommentsAction());
-  });
+  }, []);
 
   console.log(comments);
   return (
