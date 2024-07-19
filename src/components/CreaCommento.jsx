@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Container, Form } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
-const CreaCommento = ({ user }) => {
+const CreaCommento = () => {
   const [comment, setComment] = useState("");
+  const userMe = useSelector((state) => state.user.userObj);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,20 +13,22 @@ const CreaCommento = ({ user }) => {
   return (
     <Container>
       <div className="d-flex">
-        <div>
-          <img src={user.image} alt="" /> {/* foto del profilo */}
+        <div className="ounded-circle overflow-hidden">
+          <img
+            src={userMe.image}
+            alt=""
+            style={{ height: "2.4rem", width: "2.4rem", overflow: "hidden" }}
+          />
         </div>
         <div>
           <Form onSubmit={handleSubmit}>
             <Form.Control
-              value={comment}
+              type="text"
               onChange={(e) => {
                 setComment(e.target.value);
               }}
               required
-              type="text"
-              placeholder="First name"
-              defaultValue="Mark"
+              placeholder="Aggiungi commento"
             />
           </Form>
         </div>
