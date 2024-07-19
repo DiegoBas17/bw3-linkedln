@@ -40,3 +40,28 @@ export const addCommentAction = (userId, comment) => {
     }
   };
 };
+
+export const deleteCommentAction = (elementId) => {
+  return async (dispatch) => {
+    try {
+      const resp = await fetch(
+        `https://striveschool-api.herokuapp.com/api/comments/` + elementId,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: "Bearer " + key,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (resp.ok) {
+        alert("Commento eliminato con successo");
+        dispatch(getCommentsAction());
+      } else {
+        throw new Error("Errore nel riperimento dei dati");
+      }
+    } catch (error) {
+      console.log("Errore", error);
+    }
+  };
+};

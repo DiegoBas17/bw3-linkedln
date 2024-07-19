@@ -16,7 +16,6 @@ body {
 }
 .leftSidebar {
   position: relative;
-  /* width: 15rem; */
 }
 
 .leftSidebarSubtitle1 {
@@ -42,16 +41,15 @@ body {
   font-size: 0.8rem;
 }
 .leftSidebar .imgBackground {
-  height: 10vh;
+ /*  height: 10vh; */
   object-fit: cover;
 }
 
 .leftSidebar .leftSidebarPicture {
   position: relative;
-  top: -40px;
-  left: 15px;
+  top: -25px;
   text-align: center;
-  width: 50%;
+ 
   display: flex;
   justify-content: center;
 }

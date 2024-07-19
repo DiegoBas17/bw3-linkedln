@@ -1,7 +1,13 @@
-import { useSelector } from "react-redux";
+import { Trash3 } from "react-bootstrap-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCommentAction } from "../redux/actions/addCommentAction";
 
 const CommentList = ({ post }) => {
   const comments = useSelector((state) => state.getComments.list);
+  const dispatch = useDispatch();
+  const handleDelete = (elementId) => {
+    dispatch(deleteCommentAction(elementId));
+  };
 
   return (
     <div className="p-3 border border-1 rounded-3 mt-3 bg-white">
@@ -12,21 +18,10 @@ const CommentList = ({ post }) => {
             <div key={index}>
               <div className="d-flex justify-content-between">
                 <div>
-                  {/* {post && (
-                    <img
-                      src={post.user.image}
-                      alt=""
-                      style={{
-                        height: "2.4rem",
-                        width: "2.4rem",
-                        overflow: "hidden",
-                      }}
-                    />
-                  )} */}
-                  <div>{comment.author}</div>
+                  <div>{comment.author}</div> <div>{comment.comment}</div>
                 </div>
-                <div>
-                  <div>{comment.comment}</div>
+                <div onClick={() => handleDelete(comment.elementId)}>
+                  <Trash3 fill="red" />
                 </div>
               </div>
               <hr />

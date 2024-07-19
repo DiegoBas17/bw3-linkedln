@@ -91,7 +91,7 @@ const CreaPost = () => {
                   src={user?.image}
                   alt="fotoProfilo"
                   className="rounded-circle text-center"
-                  style={{ width: "54px" }}
+                  style={{ width: "3.5rem", height: "3.5rem" }}
                 />
               </Link>
             </Col>
@@ -107,7 +107,7 @@ const CreaPost = () => {
               </div>
             </Col>
           </Row>
-          <Row>
+          <Row className="mt-2">
             <Col md="5">
               <div>
                 <ImageFill fill="#378FE9" />

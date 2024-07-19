@@ -21,12 +21,14 @@ const HomepageLeftSidebar = () => {
               variant="top"
               className="imgBackground"
               src="https://media.licdn.com/dms/image/D4D16AQF7ByGyAQKP-w/profile-displaybackgroundimage-shrink_350_1400/0/1714930916758?e=1726704000&v=beta&t=siLnRYZkPUVTQiJBfr4CFBHVw0FGxN8b52ftOXkIV_o"
+              style={{ height: "15vh" }}
             />
             <Row className="leftSidebarPicture">
               <img
                 src={user.image}
                 alt="imgProfile"
                 className="rounded-circle"
+                style={{ height: "7rem", width: "8rem" }}
               />
             </Row>
             <Card.Body className="leftSidebarBody">
