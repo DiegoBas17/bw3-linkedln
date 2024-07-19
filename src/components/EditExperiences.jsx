@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Pencil } from "react-bootstrap-icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editExperienceAction } from "../redux/actions/editExperieceAction";
 import { useEffect } from "react";
 import deleteExperienceAction from "../redux/actions/deleteExperienceAction";
+import { API_KEY } from "../redux/actions/getUserAction";
+import { getExperiencesAction } from "../redux/actions/getExperiecesAction";
 
 const EditExperiences = ({ experience }) => {
   const [show, setShow] = useState(false);
-
+  const userMe = useSelector((state) => state.user.userObj);
+  const userSelected = useSelector((state) => state.otherUsers.userSelected);
+  const user = userSelected ? userSelected : userMe;
   const [experienceObj, setExperienceObj] = useState({
     role: "",
     company: "",
@@ -29,16 +33,41 @@ const EditExperiences = ({ experience }) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const onChangeFile = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
+  const fetchForExperienceImage = (userId, expId) => {
+    const formData = new FormData();
+    formData.append("experience", selectedFile);
+    fetch(
+      `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}/picture`,
+      {
+        method: "POST",
+        body: formData,
+        headers: {
+          Authorization: API_KEY,
+        },
+      }
+    )
+      .then((resp) => {
+        if (resp.ok) {
+          alert("Immagine aggiunta con successo!");
+          dispatch(getExperiencesAction(user._id));
+        } else {
+          throw new Error("Errore nel reperimento del img");
+        }
+      })
+      .catch((err) => alert(err));
+  };
 
   const handleSave = (e) => {
     e.preventDefault();
-
-    //const formData = new FormData();
-    //Object.keys(experienceObj).forEach((key) => {
-    //  formData.append(key, experienceObj[key]);
-    //});
     dispatch(editExperienceAction(experienceObj, experience));
-    //dispatch(editExperienceAction(formData));
+    fetchForExperienceImage(userMe._id, experience._id);
     setShow(false);
   };
 
@@ -102,7 +131,9 @@ const EditExperiences = ({ experience }) => {
               <Form.Label>Descrizione</Form.Label>
               <Form.Control
                 value={experienceObj.description}
-                onChange={(e) => handleFieldChange("description", e.target.value)}
+                onChange={(e) =>
+                  handleFieldChange("description", e.target.value)
+                }
                 type="text"
                 placeholder="Descrivi la tua esperienza"
               />
@@ -116,9 +147,13 @@ const EditExperiences = ({ experience }) => {
                 placeholder="Luogo"
               />
             </Form.Group>
+            <Form.Control type="file" onChange={onChangeFile} />
             <div className="d-flex justify-content-between">
               <div>
-                <Button onClick={() => handleDelete(experience._id)} variant="danger">
+                <Button
+                  onClick={() => handleDelete(experience._id)}
+                  variant="danger"
+                >
                   Elimina
                 </Button>
               </div>
@@ -133,7 +168,6 @@ const EditExperiences = ({ experience }) => {
             </div>
           </Form>
         </Modal.Body>
-        {/* <Modal.Footer></Modal.Footer> */}
       </Modal>
     </>
   );
