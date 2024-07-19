@@ -35,10 +35,7 @@ const EsperienzaProfile = () => {
       </div>
       {/* qualifica 1 */}
       {experiences.map((experience) => (
-        <div
-          className="d-flex justify-content-between mt-3"
-          key={experience._id}
-        >
+        <div className="d-flex justify-content-between mt-3" key={experience._id}>
           <div className="d-flex">
             <div>
               {experience.image ? (
@@ -63,7 +60,7 @@ const EsperienzaProfile = () => {
                 />
               )}
             </div>
-            <div className="d-flex ">
+            <div className="d-flex ms-2">
               <div>
                 <h5>{experience.role}</h5>
                 <p className="mb-0">{experience.description}</p>
@@ -75,9 +72,7 @@ const EsperienzaProfile = () => {
               </div>
             </div>
           </div>
-          <div>
-            {!userSelected && <EditExperiences experience={experience} />}
-          </div>
+          <div>{!userSelected && <EditExperiences experience={experience} />}</div>
         </div>
       ))}
     </div>

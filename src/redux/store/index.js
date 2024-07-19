@@ -7,6 +7,7 @@ import editExperienceReducer from "../reducers/editExperienceReducer";
 import arrayPostHomeReducer from "../reducers/arrayPostHomeReducer";
 import deleteExperienceReducer from "../reducers/deleteExperienceReducer";
 import lavoroReducer from "../reducers/lavoroReducer";
+import getCommentsReducer from "../reducers/getCommentsReducer";
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   arrayPostHome: arrayPostHomeReducer,
   deleteExperience: deleteExperienceReducer,
   lavoroLista: lavoroReducer,
+  getComments: getCommentsReducer,
 });
 
 const store = configureStore({
