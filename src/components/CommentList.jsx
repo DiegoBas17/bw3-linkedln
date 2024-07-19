@@ -1,24 +1,39 @@
-import { Container } from "react-bootstrap";
-
 import { useSelector } from "react-redux";
 
 const CommentList = ({ post }) => {
   const comments = useSelector((state) => state.getComments.list);
+  console.log(post);
 
   return (
-    <Container>
-      <div>
-        {post &&
-          comments
-            .filter((commento) => commento._id === post._id)
-            .map((comment, index) => (
-              <div key={index}>
-                <div>{comment.author}</div>
-                <div>{comment.comment}</div>
+    <div className="p-3 border border-1 rounded-3 mt-3 bg-white">
+      {post &&
+        comments
+          .filter((commento) => commento.elementId === post._id)
+          .map((comment, index) => (
+            <>
+              <div key={index} className="d-flex justify-content-between">
+                <div>
+                  {/* {post && (
+                    <img
+                      src={post.user.image}
+                      alt=""
+                      style={{
+                        height: "2.4rem",
+                        width: "2.4rem",
+                        overflow: "hidden",
+                      }}
+                    />
+                  )} */}
+                  <div>{comment.author}</div>
+                </div>
+                <div>
+                  <div>{comment.comment}</div>
+                </div>
               </div>
-            ))}
-      </div>
-    </Container>
+              <hr />
+            </>
+          ))}
+    </div>
   );
 };
 export default CommentList;

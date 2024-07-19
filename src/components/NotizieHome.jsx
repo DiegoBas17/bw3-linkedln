@@ -9,7 +9,9 @@ import { getCommentsAction } from "../redux/actions/getCommentsAction";
 
 const NotizieHome = () => {
   const dispatch = useDispatch();
-  const arrayPostNotizie = useSelector((state) => state.arrayPostHome.arrayPost);
+  const arrayPostNotizie = useSelector(
+    (state) => state.arrayPostHome.arrayPost
+  );
   const userMe = useSelector((state) => state.user.userObj);
   const userMeId = userMe?._id;
   useEffect(() => {
@@ -61,14 +63,17 @@ const NotizieHome = () => {
 
   const editPost = async (postId, textPost) => {
     try {
-      const resp = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + postId, {
-        method: "PUT",
-        body: JSON.stringify({ text: textPost }),
-        headers: {
-          Authorization: "Bearer " + key,
-          "Content-Type": "application/json",
-        },
-      });
+      const resp = await fetch(
+        "https://striveschool-api.herokuapp.com/api/posts/" + postId,
+        {
+          method: "PUT",
+          body: JSON.stringify({ text: textPost }),
+          headers: {
+            Authorization: "Bearer " + key,
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (resp.ok) {
         alert("post modificato correttamente.");
         dispatch(fetchPostNotizieAction());
@@ -90,7 +95,10 @@ const NotizieHome = () => {
       <div>
         {arrayPostNotizie.map((post, index) => {
           return (
-            <div key={index} className="p-3 border border-1 rounded-3 mt-3 bg-white">
+            <div
+              key={index}
+              className="p-3 border border-1 rounded-3 mt-3 bg-white"
+            >
               <div className="d-flex justify-content-between align-items-center">
                 <div className="d-flex justify-content-between">
                   <div>
@@ -148,7 +156,12 @@ const NotizieHome = () => {
               </div>
               <p>{post.text}</p>
               {post.image ? (
-                <img src={post.image} alt="" style={{ width: "100%", height: "300px" }} className="mb-2" />
+                <img
+                  src={post.image}
+                  alt=""
+                  style={{ width: "100%", height: "300px" }}
+                  className="mb-2"
+                />
               ) : (
                 <></>
               )}
@@ -156,7 +169,11 @@ const NotizieHome = () => {
                 <button type="button" className="btn btn-light">
                   Consiglia
                 </button>
-                <button type="button" className="btn btn-light" onClick={() => dispatch(getCommentsAction())}>
+                <button
+                  type="button"
+                  className="btn btn-light"
+                  onClick={() => dispatch(getCommentsAction())}
+                >
                   Commenta
                 </button>
                 <button type="button" className="btn btn-light">
