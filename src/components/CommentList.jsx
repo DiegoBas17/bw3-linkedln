@@ -1,29 +1,30 @@
-import { useEffect } from "react";
+//import { useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { List } from "react-bootstrap-icons";
-import { useDispatch } from "react-redux";
+//import { List } from "react-bootstrap-icons";
+//import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { getCommentsAction } from "../redux/actions/getCommentsAction";
+//import { getCommentsAction } from "../redux/actions/getCommentsAction";
 
-const CommentList = () => {
+const CommentList = ({ post }) => {
   const comments = useSelector((state) => state.getComments.list);
-  const dispatch = useDispatch();
-
+  //const dispatch = useDispatch();
+  /* 
   useEffect(() => {
     dispatch(getCommentsAction());
-  }, []);
+  }, []); */
 
-  console.log(comments);
   return (
     <Container>
-      {/* <List.Group>
-        {comments.map((comment) => (
-          <div key={comment._id}>
-            <div>{comment.author}</div>
-            <div>{comment.comment}</div>
-          </div>
-        ))}
-      </List.Group> */}
+      <div>
+        {comments
+          .filter((commento) => post._id === commento._id)
+          .map((comment) => (
+            <div key={comment._id}>
+              <div>{comment.author}</div>
+              <div>{comment.comment}</div>
+            </div>
+          ))}
+      </div>
     </Container>
   );
 };
