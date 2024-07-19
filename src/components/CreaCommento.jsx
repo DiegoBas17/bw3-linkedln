@@ -13,20 +13,25 @@ const CreaCommento = ({ post }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addCommentAction(post._id, comment));
+    console.log(post._id);
+    console.log(comment);
     setComment("");
   };
 
   return (
     <Container>
-      <p>ciao diego</p>
       <div className="d-flex">
         <div className="rounded-circle overflow-hidden me-2">
           {userMe && (
-            <img src={userMe.image} alt="" style={{ height: "2.4rem", width: "2.4rem", overflow: "hidden" }} />
+            <img
+              src={userMe.image}
+              alt=""
+              style={{ height: "2.4rem", width: "2.4rem", overflow: "hidden" }}
+            />
           )}
         </div>
         <div className="w-100">
-          <Form onSubmit={() => handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             <Form.Control
               value={comment}
               type="text"

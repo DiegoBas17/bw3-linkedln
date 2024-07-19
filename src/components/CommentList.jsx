@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 
 const CommentList = ({ post }) => {
   const comments = useSelector((state) => state.getComments.list);
-  console.log(post);
 
   return (
     <div className="p-3 border border-1 rounded-3 mt-3 bg-white">
@@ -10,8 +9,8 @@ const CommentList = ({ post }) => {
         comments
           .filter((commento) => commento.elementId === post._id)
           .map((comment, index) => (
-            <>
-              <div key={index} className="d-flex justify-content-between">
+            <div key={index}>
+              <div className="d-flex justify-content-between">
                 <div>
                   {/* {post && (
                     <img
@@ -31,7 +30,7 @@ const CommentList = ({ post }) => {
                 </div>
               </div>
               <hr />
-            </>
+            </div>
           ))}
     </div>
   );
