@@ -1,4 +1,4 @@
-import { API_KEY, URL_USER } from "./getUserAction";
+import { key, URL_USER } from "./getUserAction";
 
 export const DELETE_EXPERIENCE = "DELETE_EXPERIENCE";
 
@@ -12,7 +12,7 @@ export const deleteExperienceAction = (experienceId) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          Authorization: API_KEY,
+          Authorization: "Bearer " + key,
         },
       });
       if (resp.ok) {

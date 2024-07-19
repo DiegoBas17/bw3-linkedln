@@ -1,16 +1,56 @@
-import { Button, Col, Container } from "react-bootstrap";
+import { Button, Col, Container, Form, Modal } from "react-bootstrap";
 import AnalisiProfile from "./AnalisiProfile";
 import RisorseProfile from "./RisorseProfile";
 import AttivityProfile from "./AttivityProfile";
 import FormazioneProfile from "./FormazioneProfile";
 import LicenzeCertificazioniProfile from "./LicenzeCertificazioniProfile";
 import EsperienzaProfile from "./Esperienzaprofile";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { getUserAction, key } from "../redux/actions/getUserAction";
 
 const CentralProfile = () => {
   const userMe = useSelector((state) => state.user.userObj);
   const userSelected = useSelector((state) => state.otherUsers.userSelected);
   const user = userSelected ? userSelected : userMe;
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const dispatch = useDispatch();
+  const onChangeFile = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+  const fetchForProfileImage = (userId) => {
+    const formData = new FormData();
+    formData.append("profile", selectedFile);
+    fetch(
+      `https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`,
+      {
+        method: "POST",
+        body: formData,
+        headers: {
+          Authorization: "Bearer " + key,
+        },
+      }
+    )
+      .then((resp) => {
+        if (resp.ok) {
+          alert("Immagine aggiunta con successo!");
+          dispatch(getUserAction());
+        } else {
+          throw new Error("Errore nel reperimento del img");
+        }
+      })
+      .catch((err) => alert(err));
+  };
+  const handleSave = (e) => {
+    e.preventDefault();
+    fetchForProfileImage(userMe._id);
+    setShow(false);
+  };
 
   return (
     <>
@@ -52,7 +92,8 @@ const CentralProfile = () => {
                         id="imgProfilePageProfile"
                         src={user.image}
                         alt="foto-profilo"
-                        className="rounded-circle border border-5 border-white"
+                        className="rounded-circle border border-5 border-white object-fit-cover"
+                        style={{ height: "12rem", width: "12rem" }}
                       />
                     </div>
                   </div>
@@ -72,6 +113,7 @@ const CentralProfile = () => {
                         role="none"
                         data-supported-dps="24x24"
                         fill="currentColor"
+                        onClick={handleShow}
                       >
                         <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z" />
                       </svg>
@@ -125,6 +167,31 @@ const CentralProfile = () => {
           </main>
         </Col>
       )}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>MODIFICA IMMAGINE DEL PROFILO</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleSave}>
+            <Form.Group className="mb-3" controlId="Immagine">
+              <Form.Control type="file" onChange={onChangeFile} />
+            </Form.Group>
+            <div className="d-flex justify-content-between">
+              <div>
+                <Button variant="danger">Elimina</Button>
+              </div>
+              <div>
+                <Button variant="secondary" onClick={handleClose}>
+                  Chiudi
+                </Button>
+                <Button className="ms-2" type="submit" variant="primary">
+                  Salva Modifica
+                </Button>
+              </div>
+            </div>
+          </Form>
+        </Modal.Body>
+      </Modal>
     </>
   );
 };

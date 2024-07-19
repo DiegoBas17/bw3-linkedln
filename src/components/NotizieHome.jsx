@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPostNotizieAction } from "../redux/actions/arrayPostHomeAction";
 import { useEffect, useState } from "react";
 import { Trash3 } from "react-bootstrap-icons";
-import { API_KEY } from "../redux/actions/getUserAction";
 import { Button, Form, Modal } from "react-bootstrap";
+import { key } from "../redux/actions/getUserAction";
 
 const NotizieHome = () => {
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ const NotizieHome = () => {
     fetch("https://striveschool-api.herokuapp.com/api/posts/" + postId, {
       method: "DELETE",
       headers: {
-        Authorization: API_KEY,
+        Authorization: "Bearer " + key,
       },
     })
       .then((resp) => {
@@ -67,7 +67,7 @@ const NotizieHome = () => {
           method: "PUT",
           body: JSON.stringify({ text: textPost }),
           headers: {
-            Authorization: API_KEY,
+            Authorization: "Bearer " + key,
             "Content-Type": "application/json",
           },
         }

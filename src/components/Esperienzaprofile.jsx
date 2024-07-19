@@ -11,10 +11,13 @@ import EditExperiences from "./EditExperiences";
 const EsperienzaProfile = () => {
   const dispatch = useDispatch();
   const experiences = useSelector((state) => state.experiences.list);
+  const userMe = useSelector((state) => state.user.userObj);
+  const userSelected = useSelector((state) => state.otherUsers.userSelected);
+  const user = userSelected ? userSelected : userMe;
 
   useEffect(() => {
-    dispatch(getExperiencesAction());
-  }, [dispatch]);
+    dispatch(getExperiencesAction(user._id));
+  }, [user]);
 
   console.log(experiences);
 
@@ -23,7 +26,7 @@ const EsperienzaProfile = () => {
       <div className="d-flex justify-content-between">
         <h2>Esperienza</h2>
         <div className="d-flex justify-content-between">
-          <AddExperiences style={{ cursor: "pointer" }} />
+          {!userSelected && <AddExperiences style={{ cursor: "pointer" }} />}
 
           {/*  <ModificaEsperienza /> */}
 
@@ -32,31 +35,48 @@ const EsperienzaProfile = () => {
       </div>
       {/* qualifica 1 */}
       {experiences.map((experience) => (
-        <div className="d-flex mt-3" key={experience._id}>
-          <div>
-            <img
-              width="48"
-              src="https://media.licdn.com/dms/image/C4E0BAQHYgix-Ynux1A/company-logo_100_100/0/1646830188798/epicodeschool_logo?e=1729123200&amp;v=beta&amp;t=h5xweoh6ztkgY0_oRfROE4Q649H11tcWlMMnHpR8qok"
-              loading="lazy"
-              height="48"
-              alt="Logo di EPICODE"
-              id="ember704"
-              className="ivm-view-attr__img--centered EntityPhoto-square-3   evi-image lazy-image ember-view"
-            />
+        <div
+          className="d-flex justify-content-between mt-3"
+          key={experience._id}
+        >
+          <div className="d-flex">
+            <div>
+              {experience.image ? (
+                <img
+                  width="48"
+                  src={experience.image}
+                  loading="lazy"
+                  height="48"
+                  alt="Logo di EPICODE"
+                  id="ember704"
+                  className="ivm-view-attr__img--centered EntityPhoto-square-3   evi-image lazy-image ember-view"
+                />
+              ) : (
+                <img
+                  width="48"
+                  src="https://media.licdn.com/dms/image/C4E0BAQHYgix-Ynux1A/company-logo_100_100/0/1646830188798/epicodeschool_logo?e=1729123200&amp;v=beta&amp;t=h5xweoh6ztkgY0_oRfROE4Q649H11tcWlMMnHpR8qok"
+                  loading="lazy"
+                  height="48"
+                  alt="Logo di EPICODE"
+                  id="ember704"
+                  className="ivm-view-attr__img--centered EntityPhoto-square-3   evi-image lazy-image ember-view"
+                />
+              )}
+            </div>
+            <div className="d-flex ">
+              <div>
+                <h5>{experience.role}</h5>
+                <p className="mb-0">{experience.description}</p>
+                <p className="mb-0">{experience.company}</p>
+                <p className="mb-0 text-secondary">
+                  {experience.startDate} - {experience.endDate}
+                </p>
+                <p className="text-secondary">{experience.area}</p>
+              </div>
+            </div>
           </div>
-          <div className="d-flex justify-content-between">
-            <div>
-              <h5>{experience.role}</h5>
-              <p className="mb-0">{experience.description}</p>
-              <p className="mb-0">{experience.company}</p>
-              <p className="mb-0 text-secondary">
-                {experience.startDate} - {experience.endDate}
-              </p>
-              <p className="text-secondary">{experience.area}</p>
-            </div>
-            <div>
-              <EditExperiences experience={experience} />
-            </div>
+          <div>
+            {!userSelected && <EditExperiences experience={experience} />}
           </div>
         </div>
       ))}

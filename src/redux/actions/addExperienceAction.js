@@ -1,5 +1,5 @@
 //import { getExperiencesAction } from "./getExperiecesAction";
-import { API_KEY, URL_USER } from "./getUserAction";
+import { key, URL_USER } from "./getUserAction";
 
 export const ADD_EXPERIENCE = "ADD_EXPERIENCE";
 const myId = "66952362196d7b0015d6b544/";
@@ -13,7 +13,7 @@ export const addExperienceAction = (value) => {
         body: JSON.stringify(value),
         headers: {
           "Content-Type": "application/json",
-          Authorization: API_KEY,
+          Authorization: "Bearer " + key,
         },
       });
       if (resp.ok) {
