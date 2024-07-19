@@ -6,6 +6,7 @@ export const API_KEY =
 
 const me = "me";
 export const key = import.meta.env.VITE_SECRET_KEY;
+
 export const getUserAction = () => {
   return async (dispatch) => {
     try {
