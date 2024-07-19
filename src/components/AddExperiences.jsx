@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Plus } from "react-bootstrap-icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addExperienceAction } from "../redux/actions/addExperienceAction";
 
 function AddExperiences() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const userMe = useSelector((state) => state.user.userObj);
   /* stato locale per obj per la post */
   const [objExperience, setObjExperience] = useState({
     role: "",
@@ -22,7 +23,7 @@ function AddExperiences() {
 
   const handleSave = (e) => {
     e.preventDefault();
-    dispatch(addExperienceAction(objExperience));
+    dispatch(addExperienceAction(userMe._id, objExperience));
     setShow(false);
   };
 
@@ -85,7 +86,9 @@ function AddExperiences() {
               <Form.Control
                 type="text"
                 placeholder="Descrivi la tua esperienza"
-                onChange={(e) => handleFieldChange("description", e.target.value)}
+                onChange={(e) =>
+                  handleFieldChange("description", e.target.value)
+                }
                 required
               />
             </Form.Group>

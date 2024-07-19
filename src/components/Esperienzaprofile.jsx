@@ -19,21 +19,14 @@ const EsperienzaProfile = () => {
     dispatch(getExperiencesAction(user._id));
   }, [user]);
 
-  console.log(experiences);
-
   return (
     <div className="p-3 border border-1 rounded-3 mt-3 bg-white">
       <div className="d-flex justify-content-between">
         <h2>Esperienza</h2>
         <div className="d-flex justify-content-between">
           {!userSelected && <AddExperiences style={{ cursor: "pointer" }} />}
-
-          {/*  <ModificaEsperienza /> */}
-
-          {/* <Pencil onClick={handlePencilClick} style={{ cursor: "pointer" }} /> */}
         </div>
       </div>
-      {/* qualifica 1 */}
       {experiences.map((experience) => (
         <div className="d-flex justify-content-between mt-3" key={experience._id}>
           <div className="d-flex">

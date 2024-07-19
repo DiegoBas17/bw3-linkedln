@@ -16,9 +16,10 @@ export const fetchPostNotizieAction = () => {
       );
       if (resp.ok) {
         const arrayPost = await resp.json();
+        const primiVentiPost = arrayPost.toReversed().slice(0, 20);
         dispatch({
           type: GET_FETCH,
-          payload: arrayPost,
+          payload: primiVentiPost,
         });
       } else {
         throw new Error("Errore nel riperimento dei dati");

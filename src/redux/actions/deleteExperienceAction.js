@@ -2,13 +2,11 @@ import { key, URL_USER } from "./getUserAction";
 
 export const DELETE_EXPERIENCE = "DELETE_EXPERIENCE";
 
-const myId = "66952362196d7b0015d6b544/";
 const experiences = "experiences/";
-
-export const deleteExperienceAction = (experienceId) => {
+export const deleteExperienceAction = (id, experienceId) => {
   return async (dispatch) => {
     try {
-      let resp = await fetch(URL_USER + myId + experiences + experienceId, {
+      let resp = await fetch(URL_USER + id + experiences + experienceId, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
