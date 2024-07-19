@@ -1,4 +1,11 @@
-import { Button, Form, InputGroup, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import {
+  Button,
+  Form,
+  InputGroup,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
 import {
   BarChartFill,
   BriefcaseFill,
@@ -28,7 +35,10 @@ function TopNavbar() {
   return (
     <>
       {user && (
-        <Navbar className="bg-body-tertiary navbar-linkedin" style={{ height: "80px", zIndex: 99 }}>
+        <Navbar
+          className="bg-body-tertiary navbar-linkedin"
+          style={{ height: "80px", zIndex: 99 }}
+        >
           <Container>
             <NavLink to="/" className="navbar-brand">
               <svg
@@ -50,7 +60,11 @@ function TopNavbar() {
             </NavLink>
             <Form className="nav-search">
               <InputGroup>
-                <InputGroup.Text id="search-icon" className="search-input pe-2" style={{ backgroundColor: "#EDF3F8" }}>
+                <InputGroup.Text
+                  id="search-icon"
+                  className="search-input pe-2"
+                  style={{ backgroundColor: "#EDF3F8" }}
+                >
                   <Search />
                 </InputGroup.Text>
                 <Form.Control
@@ -89,7 +103,10 @@ function TopNavbar() {
                 </svg>
                 <small className="d-none d-lg-block">Home</small>
               </NavLink>
-              <NavLink to="/rete" className="d-flex flex-column align-items-center nav-link">
+              <NavLink
+                to="/rete"
+                className="d-flex flex-column align-items-center nav-link"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -102,7 +119,16 @@ function TopNavbar() {
                 </svg>
                 <small className="d-none d-lg-block">Rete</small>
               </NavLink>
-              <NavLink to="/lavoro/" className="d-flex flex-column align-items-center nav-link">
+              <NavLink
+                to="/lavoro/"
+                className="d-flex flex-column align-items-center nav-link"
+                onClick={() => {
+                  dispatch({
+                    type: GET_USER_SELECTED,
+                    payload: null,
+                  });
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -115,7 +141,10 @@ function TopNavbar() {
                 </svg>
                 <small className="d-none d-lg-block">Lavoro</small>
               </NavLink>
-              <NavLink to="/messaggistica" className="d-flex flex-column align-items-center nav-link">
+              <NavLink
+                to="/messaggistica"
+                className="d-flex flex-column align-items-center nav-link"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -128,7 +157,10 @@ function TopNavbar() {
                 </svg>
                 <small className="d-none d-lg-block">Messaggistica</small>
               </NavLink>
-              <NavLink to="/notifiche" className="d-flex flex-column align-items-center nav-link">
+              <NavLink
+                to="/notifiche"
+                className="d-flex flex-column align-items-center nav-link"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -159,7 +191,10 @@ function TopNavbar() {
                 drop="down"
               >
                 <NavDropdown.Item>
-                  <NavLink to={"/profile/" + user._id} className="text-decoration-none">
+                  <NavLink
+                    to={"/profile/" + user._id}
+                    className="text-decoration-none"
+                  >
                     <div className="d-flex flex-column border-bottom">
                       <div className="d-flex flex-column align-items-center">
                         <img
@@ -168,8 +203,17 @@ function TopNavbar() {
                           className="rounded-circle mb-1 nav-bar-propic"
                           style={{ height: "50px", width: "50px" }}
                         />
-                        <Button variant="outline-primary" className="rounded-pill px-lg-3 py-0 w-100 my-3 ">
-                          View profile
+                        <Button
+                          variant="outline-primary"
+                          className="rounded-pill px-lg-3 py-0 w-100 my-3"
+                          onClick={() => {
+                            dispatch({
+                              type: GET_USER_SELECTED,
+                              payload: null,
+                            });
+                          }}
+                        >
+                          Visualizza Profilo
                         </Button>
                       </div>
                     </div>
@@ -177,27 +221,45 @@ function TopNavbar() {
                 </NavDropdown.Item>
                 <div className="mx-3 border-bottom mb-3">
                   <h5>Account</h5>
-                  <p style={{ cursor: "pointer" }} className="dropdown-link text-secondary">
+                  <p
+                    style={{ cursor: "pointer" }}
+                    className="dropdown-link text-secondary"
+                  >
                     Impostazioni e Privacy
                   </p>
-                  <p style={{ cursor: "pointer" }} className="dropdown-link text-secondary">
+                  <p
+                    style={{ cursor: "pointer" }}
+                    className="dropdown-link text-secondary"
+                  >
                     Aiuto
                   </p>
-                  <p style={{ cursor: "pointer" }} className="dropdown-link text-secondary">
+                  <p
+                    style={{ cursor: "pointer" }}
+                    className="dropdown-link text-secondary"
+                  >
                     Lingua
                   </p>
                 </div>
                 <div className="mx-3 border-bottom mb-3">
                   <h5>Gestisci</h5>
-                  <p style={{ cursor: "pointer" }} className="dropdown-link text-secondary">
+                  <p
+                    style={{ cursor: "pointer" }}
+                    className="dropdown-link text-secondary"
+                  >
                     Post e Attività
                   </p>
-                  <p style={{ cursor: "pointer" }} className="dropdown-link text-secondary">
+                  <p
+                    style={{ cursor: "pointer" }}
+                    className="dropdown-link text-secondary"
+                  >
                     Account per la pubblicazione
                   </p>
                 </div>
                 <div className="mx-3">
-                  <p style={{ cursor: "pointer" }} className="dropdown-link text-secondary">
+                  <p
+                    style={{ cursor: "pointer" }}
+                    className="dropdown-link text-secondary"
+                  >
                     Sign Out
                   </p>
                 </div>
@@ -228,39 +290,53 @@ function TopNavbar() {
                     <h5>Scopri altri prodotti LinkedIn </h5>
                     <div className="d-flex align-items-center">
                       <Compass fill="#0A66C2" />
-                      <NavDropdown.Item href="#action/3.1">Trova lead</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.1">
+                        Trova lead
+                      </NavDropdown.Item>
                     </div>
                     <div className="d-flex align-items-center mb-3">
                       <PeopleFill fill="#0A66C2" />
-                      <NavDropdown.Item href="#action/3.2">Gruppi</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.2">
+                        Gruppi
+                      </NavDropdown.Item>
                     </div>
 
                     <p className="mb-0 text-secondary">Talent</p>
                     <div className="d-flex align-items-center">
                       <BarChartFill fill="#0A66C2" />
-                      <NavDropdown.Item href="#action/3.1">Talent Inside</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.1">
+                        Talent Inside
+                      </NavDropdown.Item>
                     </div>
                     <div className="d-flex align-items-center mb-3">
                       <BriefcaseFill fill="#0A66C2" />
-                      <NavDropdown.Item href="#action/3.2">Pubblica un&rsquo offerta di lavoro</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.2">
+                        Pubblica un&rsquo offerta di lavoro
+                      </NavDropdown.Item>
                     </div>
 
                     <p className="mb-0 text-secondary">Vendite</p>
                     <div className="d-flex align-items-center mb-3">
                       <CartDashFill fill="#0A66C2" />
-                      <NavDropdown.Item href="#action/3.1">Marketplace dei Servizi</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.1">
+                        Marketplace dei Servizi
+                      </NavDropdown.Item>
                     </div>
 
                     <p className="mb-0 text-secondary">Marketing</p>
                     <div className="d-flex align-items-center mb-3">
                       <Bullseye fill="#0A66C2" />
-                      <NavDropdown.Item href="#action/3.1">Pubblicizza</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.1">
+                        Pubblicizza
+                      </NavDropdown.Item>
                     </div>
 
                     <p className="mb-0 text-secondary">Learning</p>
                     <div className="d-flex align-items-center mb-3">
                       <PlayBtnFill fill="#0A66C2" />
-                      <NavDropdown.Item href="#action/3.1">Learning</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.1">
+                        Learning
+                      </NavDropdown.Item>
                     </div>
                   </div>
 
@@ -268,27 +344,39 @@ function TopNavbar() {
                     <h5>Scopri altro per il business</h5>
                     <div className="mb-3">
                       <p className="mb-0">Assumi con LinkedIn</p>
-                      <p className="fw-lighter text-secondary">Trova, attrai e assumi</p>
+                      <p className="fw-lighter text-secondary">
+                        Trova, attrai e assumi
+                      </p>
                     </div>
                     <div className="mb-3">
                       <p className="mb-0">Vendi con LinkedIn</p>
-                      <p className="fw-lighter text-secondary">Sblocca nuove opportunità di vendita</p>
+                      <p className="fw-lighter text-secondary">
+                        Sblocca nuove opportunità di vendita
+                      </p>
                     </div>
                     <div className="mb-3">
                       <p className="mb-0">Offerta di lavoro gratuita</p>
-                      <p className="fw-lighter text-secondary">Ottieni rapidamente camndidati qualificati</p>
+                      <p className="fw-lighter text-secondary">
+                        Ottieni rapidamente camndidati qualificati
+                      </p>
                     </div>
                     <div className="mb-3">
                       <p className="mb-0">Fai pubblicità con LinkedIn</p>
-                      <p className="fw-lighter text-secondary">Acquisisci clientie fai crescere la tua azienda</p>
+                      <p className="fw-lighter text-secondary">
+                        Acquisisci clientie fai crescere la tua azienda
+                      </p>
                     </div>
                     <div className="mb-3">
                       <p className="mb-0">Impara con LinkedIn</p>
-                      <p className="fw-lighter text-secondary">Assumi su LinkedIn</p>
+                      <p className="fw-lighter text-secondary">
+                        Assumi su LinkedIn
+                      </p>
                     </div>
                     <div className="mb-5">
                       <p className="mb-0">Admin Center</p>
-                      <p className="fw-lighter text-secondary">Gestisci i dettagli di fatturazionee account</p>
+                      <p className="fw-lighter text-secondary">
+                        Gestisci i dettagli di fatturazionee account
+                      </p>
                     </div>
                     <h5>Crea una pagina aziendale +</h5>
                   </div>
