@@ -9,7 +9,7 @@ const LinkedInNotizie = () => {
     <Col md={3}>
       <Container className="rounded-3 sidebar-notizie">
         <div className="d-flex justify-content-between ">
-          <div>
+          <div className="my-3 ms-2">
             <h2>LinkedIn Notizie</h2>
           </div>
           <div>
