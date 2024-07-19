@@ -14,24 +14,27 @@ const CreaCommento = () => {
   return (
     <Container>
       <div className="d-flex">
-        <div className="ounded-circle overflow-hidden">
-          <img src={userMe.image} alt="" style={{ height: "2.4rem", width: "2.4rem", overflow: "hidden" }} />
+        <div className="rounded-circle overflow-hidden me-2">
+          <img
+            src={userMe.image}
+            alt=""
+            style={{ height: "2.4rem", width: "2.4rem", overflow: "hidden" }}
+          />
         </div>
-        <div>
-          <Form onSubmit={() => handleSubmit}>
-            <Form.Control
-              value={comment}
-              type="text"
-              onChange={(e) => {
-                setComment(e.target.value);
-              }}
-              required
-              placeholder="Aggiungi un commento..."
-            />
-          </Form>
+        <div className="w-100">
+          <Form.Control
+            value={comment}
+            type="text"
+            onChange={(e) => {
+              setComment(e.target.value);
+            }}
+            required
+            placeholder="Aggiungi un commento..."
+            onClick={() => handleSubmit}
+          />
         </div>
-        <CommentList />
       </div>
+      <CommentList />
     </Container>
   );
 };

@@ -104,8 +104,8 @@ const NotizieHome = () => {
                     <img
                       src={post.user?.image}
                       alt=""
-                      style={{ height: "24px", width: "24px" }}
-                      className="rounded-circle"
+                      style={{ height: "55px", width: "55px" }}
+                      className="rounded-circle me-3"
                     />
                   </div>
                   <div>
@@ -154,13 +154,30 @@ const NotizieHome = () => {
                 )}
               </div>
               <p>{post.text}</p>
-              <img
-                src={post?.image}
-                alt=""
-                style={{ width: "100%", height: "300px" }}
-                className="mb-2"
-              />
-
+              {post.image ? (
+                <img
+                  src={post.image}
+                  alt=""
+                  style={{ width: "100%", height: "300px" }}
+                  className="mb-2"
+                />
+              ) : (
+                <></>
+              )}
+              <div className="d-flex">
+                <button type="button" className="btn btn-light">
+                  Consiglia
+                </button>
+                <button type="button" className="btn btn-light">
+                  Commenta
+                </button>
+                <button type="button" className="btn btn-light">
+                  Diffondi Post
+                </button>
+                <button type="button" className="btn btn-light">
+                  Invia
+                </button>
+              </div>
               <CreaCommento />
             </div>
           );

@@ -17,7 +17,7 @@ const CommentList = () => {
   return (
     <Container>
       {/* <List.Group>
-        {comments.map((comment) => (
+        {comments.filter((commento)=> post._id === comment._id).map((comment) => (
           <div key={comment._id}>
             <div>{comment.author}</div>
             <div>{comment.comment}</div>
