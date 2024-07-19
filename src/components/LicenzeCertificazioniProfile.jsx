@@ -1,24 +1,75 @@
+import { Col, Container, ListGroup, Row } from "react-bootstrap";
+import { GearFill } from "react-bootstrap-icons";
+import { ShieldShaded } from "react-bootstrap-icons";
+import { QuestionCircleFill } from "react-bootstrap-icons";
+import { CaretDownFill } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
+
 const LicenzeCertificazioniProfile = () => {
   return (
-    <>
-      <div className="d-flex mt-3">
-        <img
-          width="48"
-          src="https://media.licdn.com/dms/image/C4E0BAQHYgix-Ynux1A/company-logo_100_100/0/1646830188798/epicodeschool_logo?e=1729123200&amp;v=beta&amp;t=h5xweoh6ztkgY0_oRfROE4Q649H11tcWlMMnHpR8qok"
-          loading="lazy"
-          height="48"
-          alt="Logo di EPICODE"
-          id="ember704"
-          className="ivm-view-attr__img--centered EntityPhoto-square-3   evi-image lazy-image ember-view"
-        />
-        <div>
-          <h5>Epicode</h5>
-          <p className="mb-0">Corso di formazione</p>
-          <p className="text-secondary">apr 2024</p>
-        </div>
-      </div>
-      <hr />
-    </>
+    <Container className="footer-notizie mt-5">
+      <Row>
+        <Col sm={3}>
+          <ListGroup>
+            <Link className="link-nav">Informazione</Link>
+            <Link className="link-nav">Informativa sulla community professionale</Link>
+            <Link className="link-nav">
+              Privacy e condizioni <CaretDownFill />
+            </Link>
+            <Link className="link-nav">Sales Solutions</Link>
+            <Link className="link-nav">Centro sicurezza</Link>
+          </ListGroup>
+        </Col>
+        <Col sm={3}>
+          <ListGroup>
+            <Link className="link-nav">Accessibilità</Link>
+            <Link className="link-nav">Carriera</Link>
+            <Link className="link-nav">Opzioni per gli annunci</Link>
+            <Link className="link-nav">Mobile</Link>
+          </ListGroup>
+        </Col>
+        <Col sm={3}>
+          <ListGroup>
+            <Link className="link-nav">Talent Solutions</Link>
+            <Link className="link-nav">Soluzioni di marketing</Link>
+            <Link className="link-nav">Pubbliità</Link>
+            <Link className="link-nav">Piccole imprese</Link>
+          </ListGroup>
+        </Col>
+        <Col sm={3}>
+          <ListGroup>
+            <Link className="link-nav d-flex">
+              <div>
+                <QuestionCircleFill />
+              </div>
+              <div className="ms-1">
+                <strong>Piccole imprese</strong> <br /> <p>Visita il nostro Centro assistenza.</p>
+              </div>
+            </Link>
+            <Link className="link-nav d-flex">
+              <div>
+                <GearFill />
+              </div>
+              <div className="ms-1">
+                <strong>Gestisci il tuo account e la tua privacy</strong>
+
+                <br />
+                <p>Vai alle impostazioni</p>
+              </div>
+            </Link>
+            <Link className="link-nav d-flex">
+              <div>
+                <ShieldShaded />
+              </div>
+              <div className="ms-1">
+                <strong>Trasparenza sui contenuti cosigliati</strong> <br />
+                <p>Scopri di più sui contenuti consigliati.</p>
+              </div>
+            </Link>
+          </ListGroup>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 export default LicenzeCertificazioniProfile;

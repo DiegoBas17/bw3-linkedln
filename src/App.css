@@ -1,6 +1,8 @@
 body {
   background-color: #f4f2ee;
   min-height: 100vh;
+  margin-top: 100px;
+  margin-bottom: 20px;
 }
 #imgProfilePageProfile {
   height: 14rem;
@@ -130,11 +132,16 @@ body {
 
 #job-right-sidebar {
   font-size: 0.8rem;
+  position: sticky;
+  top: 100px;
 }
-
 #job-right-sidebar button {
   font-size: 0.8rem;
   padding: 0;
+}
+.job-left-sidebar {
+  position: sticky;
+  top: 100px;
 }
 .inserzione-pubb {
   position: sticky;
@@ -157,4 +164,10 @@ body {
 }
 .sidebar-profile {
   border: 1px solid rgba(198, 198, 198, 0.459);
+}
+.navbar-linkedin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }

@@ -26,16 +26,13 @@ const CentralProfile = () => {
   const fetchForProfileImage = (userId) => {
     const formData = new FormData();
     formData.append("profile", selectedFile);
-    fetch(
-      `https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`,
-      {
-        method: "POST",
-        body: formData,
-        headers: {
-          Authorization: "Bearer " + key,
-        },
-      }
-    )
+    fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization: "Bearer " + key,
+      },
+    })
       .then((resp) => {
         if (resp.ok) {
           alert("Immagine aggiunta con successo!");
@@ -64,10 +61,7 @@ const CentralProfile = () => {
                     {userSelected ? (
                       <></>
                     ) : (
-                      <div
-                        id="editSmallContainer"
-                        className="position-absolute top-0 end-0 rounded-circle bg-white"
-                      >
+                      <div id="editSmallContainer" className="position-absolute top-0 end-0 rounded-circle bg-white">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 16 16"
@@ -136,16 +130,10 @@ const CentralProfile = () => {
                     <Button variant="primary" className="rounded-pill me-1">
                       Disponibile per
                     </Button>
-                    <Button
-                      variant="outline-primary"
-                      className="rounded-pill mx-1"
-                    >
+                    <Button variant="outline-primary" className="rounded-pill mx-1">
                       Aggiungi seione del profilo
                     </Button>
-                    <Button
-                      variant="outline-secondary"
-                      className="rounded-pill ms-1"
-                    >
+                    <Button variant="outline-secondary" className="rounded-pill ms-1">
                       Altro
                     </Button>
                   </div>
