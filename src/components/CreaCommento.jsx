@@ -22,7 +22,7 @@ const CreaCommento = () => {
           />
         </div>
         <div>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={() => handleSubmit}>
             <Form.Control
               type="text"
               onChange={(e) => {

@@ -4,16 +4,17 @@ import { useSelector } from "react-redux";
 
 const CommentList = () => {
   const comments = useSelector((state) => state.getComments.list);
+  console.log(comments);
   return (
     <Container>
-      <List.Group>
+      <div>
         {comments.map((comment) => (
-          <List.Items key={comment._id}>
+          <div key={comment._id}>
             <div>{comment.author}</div>
             <div>{comment.comment}</div>
-          </List.Items>
+          </div>
         ))}
-      </List.Group>
+      </div>
     </Container>
   );
 };
