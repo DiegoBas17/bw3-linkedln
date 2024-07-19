@@ -15,15 +15,12 @@ const CreaCommento = () => {
     <Container>
       <div className="d-flex">
         <div className="ounded-circle overflow-hidden">
-          <img
-            src={userMe.image}
-            alt=""
-            style={{ height: "2.4rem", width: "2.4rem", overflow: "hidden" }}
-          />
+          <img src={userMe.image} alt="" style={{ height: "2.4rem", width: "2.4rem", overflow: "hidden" }} />
         </div>
         <div>
           <Form onSubmit={handleSubmit}>
             <Form.Control
+              value={comment}
               type="text"
               onChange={(e) => {
                 setComment(e.target.value);

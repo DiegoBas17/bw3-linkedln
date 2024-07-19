@@ -12,6 +12,7 @@ export const getCommentsAction = () => {
       });
       if (resp.ok) {
         let comments = await resp.json();
+        console.log(comments);
         dispatch({
           type: GET_COMMENTS,
           payload: comments,
