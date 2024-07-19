@@ -26,12 +26,16 @@ const LavoroParteCentrale = () => {
 
   useEffect(() => {
     dispatch(fetchLavoro());
-  }, [dispatch]);
+  }, []);
   return (
     <Container>
       <Form onSubmit={handleSubmit} className="nav-search my-3">
         <InputGroup>
-          <InputGroup.Text id="search-icon" className="search-input pe-2" style={{ backgroundColor: "#EDF3F8" }}>
+          <InputGroup.Text
+            id="search-icon"
+            className="search-input pe-2"
+            style={{ backgroundColor: "#EDF3F8" }}
+          >
             <Search />
           </InputGroup.Text>
           <Form.Control
@@ -50,18 +54,36 @@ const LavoroParteCentrale = () => {
       <Card className="mb-4">
         <div className="m-3">
           <h3>Le principali offerte di lavoro per te</h3>
-          <p>Sulla base del tuo profilo e della tua cronologia delle ricerche</p>
+          <p>
+            Sulla base del tuo profilo e della tua cronologia delle ricerche
+          </p>
         </div>
         {lavori && lavori.length > 0 ? (
           lavori.slice(0, 10).map((lavoro) => (
             <Card.Body key={lavoro._id}>
               <Card.Title>{lavoro.title}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{lavoro.company_name}</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">
+                {lavoro.company_name}
+              </Card.Subtitle>
               <Card.Text>{lavoro.candidate_required_location}</Card.Text>
-              <Card.Link href="#" style={{ textDecoration: "none", color: "gray", fontSize: "0.9rem" }}>
+              <Card.Link
+                href="#"
+                style={{
+                  textDecoration: "none",
+                  color: "gray",
+                  fontSize: "0.9rem",
+                }}
+              >
                 Promosso
               </Card.Link>
-              <Card.Link href="#" style={{ textDecoration: "none", color: "gray", fontSize: "0.9rem" }}>
+              <Card.Link
+                href="#"
+                style={{
+                  textDecoration: "none",
+                  color: "gray",
+                  fontSize: "0.9rem",
+                }}
+              >
                 Candidatura semplice
               </Card.Link>
               <hr />
