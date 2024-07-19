@@ -1,4 +1,4 @@
-import { API_KEY } from "./getUserAction";
+import { key } from "./getUserAction";
 
 export const GET_FETCH = "GET_FETCH";
 
@@ -10,7 +10,7 @@ export const fetchPostNotizieAction = () => {
         "https://striveschool-api.herokuapp.com/api/posts/",
         {
           headers: {
-            Authorization: API_KEY,
+            Authorization: "Bearer " + key,
           },
         }
       );

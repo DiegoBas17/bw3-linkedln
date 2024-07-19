@@ -1,4 +1,4 @@
-import { API_KEY } from "./getUserAction";
+import { key } from "./getUserAction";
 
 export const GET_EXPERIENCES = "GET_EXPERIENCES";
 /* const myId = "66952362196d7b0015d6b544/"; */
@@ -11,7 +11,7 @@ export const getExperiencesAction = (id) => {
         `https://striveschool-api.herokuapp.com/api/profile/${id}/${experiences}`,
         {
           headers: {
-            Authorization: API_KEY,
+            Authorization: "Bearer " + key,
           },
         }
       );

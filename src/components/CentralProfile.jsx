@@ -7,7 +7,7 @@ import LicenzeCertificazioniProfile from "./LicenzeCertificazioniProfile";
 import EsperienzaProfile from "./Esperienzaprofile";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { API_KEY, getUserAction } from "../redux/actions/getUserAction";
+import { getUserAction, key } from "../redux/actions/getUserAction";
 
 const CentralProfile = () => {
   const userMe = useSelector((state) => state.user.userObj);
@@ -32,7 +32,7 @@ const CentralProfile = () => {
         method: "POST",
         body: formData,
         headers: {
-          Authorization: API_KEY,
+          Authorization: "Bearer " + key,
         },
       }
     )

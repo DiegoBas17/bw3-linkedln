@@ -1,14 +1,19 @@
-import { API_KEY } from "./getUserAction";
+import { key } from "./getUserAction";
 import { SEARCH_LAVORO } from "./lavoroLista";
 
 export const searchJobAction = (query) => {
   return async (dispatch) => {
     try {
-      const resp = await fetch("https://strive-benchmark.herokuapp.com/api/jobs?search=" + query + "&limit=20", {
-        headers: {
-          Authorization: API_KEY,
-        },
-      });
+      const resp = await fetch(
+        "https://strive-benchmark.herokuapp.com/api/jobs?search=" +
+          query +
+          "&limit=20",
+        {
+          headers: {
+            Authorization: "Bearer " + key,
+          },
+        }
+      );
       if (resp.ok) {
         const lavoro = await resp.json();
         dispatch({

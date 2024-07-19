@@ -8,8 +8,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
-import { API_KEY } from "../redux/actions/getUserAction";
 import { fetchPostNotizieAction } from "../redux/actions/arrayPostHomeAction";
+import { key } from "../redux/actions/getUserAction";
 
 const CreaPost = () => {
   const user = useSelector((state) => state.user.userObj);
@@ -27,7 +27,7 @@ const CreaPost = () => {
       body: JSON.stringify(post),
       headers: {
         "Content-Type": "application/json",
-        Authorization: API_KEY,
+        Authorization: "Bearer " + key,
       },
     })
       .then((resp) => {
@@ -59,7 +59,7 @@ const CreaPost = () => {
       method: "POST",
       body: formData,
       headers: {
-        Authorization: API_KEY,
+        Authorization: "Bearer " + key,
       },
     })
       .then((resp) => {

@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { editExperienceAction } from "../redux/actions/editExperieceAction";
 import { useEffect } from "react";
 import deleteExperienceAction from "../redux/actions/deleteExperienceAction";
-import { API_KEY } from "../redux/actions/getUserAction";
 import { getExperiencesAction } from "../redux/actions/getExperiecesAction";
+import { key } from "../redux/actions/getUserAction";
 
 const EditExperiences = ({ experience }) => {
   const [show, setShow] = useState(false);
@@ -49,7 +49,7 @@ const EditExperiences = ({ experience }) => {
         method: "POST",
         body: formData,
         headers: {
-          Authorization: API_KEY,
+          Authorization: "Bearer " + key,
         },
       }
     )

@@ -1,4 +1,4 @@
-import { API_KEY, URL_USER } from "./getUserAction";
+import { key, URL_USER } from "./getUserAction";
 
 export const EDIT_EXPERIENCE = "EDIT_EXPERIENCE";
 
@@ -13,7 +13,7 @@ export const editExperienceAction = (value, experience) => {
         method: "PUT",
         body: JSON.stringify(value),
         headers: {
-          Authorization: API_KEY,
+          Authorization: "Bearer " + key,
           "Content-Type": "application/json",
         },
       });
