@@ -5,6 +5,7 @@ import { Trash3 } from "react-bootstrap-icons";
 import { Button, Form, Modal } from "react-bootstrap";
 import { key } from "../redux/actions/getUserAction";
 import CreaCommento from "./CreaCommento";
+import { getCommentsAction } from "../redux/actions/getCommentsAction";
 
 const NotizieHome = () => {
   const dispatch = useDispatch();
@@ -168,7 +169,11 @@ const NotizieHome = () => {
                 <button type="button" className="btn btn-light">
                   Consiglia
                 </button>
-                <button type="button" className="btn btn-light">
+                <button
+                  type="button"
+                  className="btn btn-light"
+                  onClick={() => dispatch(getCommentsAction())}
+                >
                   Commenta
                 </button>
                 <button type="button" className="btn btn-light">
@@ -178,7 +183,7 @@ const NotizieHome = () => {
                   Invia
                 </button>
               </div>
-              <CreaCommento />
+              <CreaCommento post={post} />
             </div>
           );
         })}
